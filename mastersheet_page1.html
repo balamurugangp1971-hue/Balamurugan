@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Procurement Intelligence Mastersheet — Part 1 | Balamurugan G</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    font-size: 13px;
+    line-height: 1.6;
+    color: #1A2235;
+    background: #F4F6FA;
+  }
+  
+  .page {
+    max-width: 950px;
+    margin: 32px auto;
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+  }
+  
+  .header {
+    background: linear-gradient(135deg, #0C2340 0%, #1A3A60 100%);
+    padding: 36px 40px;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .header::after {
+    content: '';
+    position: absolute;
+    right: -60px;
+    top: -60px;
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.04);
+  }
+  
+  .header h1 {
+    font-size: 28px;
+    font-weight: 800;
+    margin-bottom: 6px;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .header h1 span {
+    color: #F0A500;
+  }
+  
+  .header-subtitle {
+    font-size: 13px;
+    color: rgba(255,255,255,0.75);
+    margin-bottom: 12px;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .header-contact {
+    font-size: 11px;
+    color: rgba(255,255,255,0.65);
+    position: relative;
+    z-index: 1;
+  }
+  
+  .header-contact a {
+    color: #F0A500;
+    text-decoration: none;
+  }
+  
+  .body {
+    padding: 40px;
+  }
+  
+  .section {
+    margin-bottom: 36px;
+  }
+  
+  .section-title {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #0C2340;
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #F0A500;
+    display: inline-block;
+  }
+  
+  .content-box {
+    background: #F8FAFF;
+    border: 1px solid #DCE6F5;
+    border-radius: 6px;
+    padding: 18px;
+    margin-bottom: 12px;
+  }
+  
+  .content-box h3 {
+    font-size: 12px;
+    font-weight: 700;
+    color: #0C2340;
+    margin-bottom: 10px;
+  }
+  
+  .content-box p {
+    font-size: 12px;
+    color: #3A4A60;
+    line-height: 1.7;
+    margin-bottom: 8px;
+  }
+  
+  .content-box ul {
+    padding-left: 20px;
+    font-size: 12px;
+    color: #3A4A60;
+  }
+  
+  .content-box li {
+    margin-bottom: 6px;
+    line-height: 1.6;
+  }
+  
+  .content-box li::marker {
+    color: #F0A500;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 12px;
+    font-size: 11.5px;
+  }
+  
+  table thead {
+    background: #0C2340;
+    color: #fff;
+  }
+  
+  table th {
+    padding: 10px 12px;
+    text-align: left;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+  }
+  
+  table tbody tr:nth-child(even) {
+    background: #F4F7FF;
+  }
+  
+  table tbody tr:nth-child(odd) {
+    background: #fff;
+  }
+  
+  table td {
+    padding: 9px 12px;
+    border-bottom: 1px solid #E8EDF8;
+    color: #2C3E55;
+  }
+  
+  table td:first-child {
+    font-weight: 600;
+    color: #0C2340;
+  }
+  
+  .badge {
+    display: inline-block;
+    background: rgba(240, 165, 0, 0.15);
+    color: #F0A500;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 4px;
+    margin-right: 6px;
+  }
+  
+  .two-column {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 12px;
+  }
+  
+  .footer {
+    background: #0C2340;
+    color: #fff;
+    padding: 24px 40px;
+    text-align: center;
+    font-size: 11px;
+  }
+  
+  .footer a {
+    color: #F0A500;
+    text-decoration: none;
+  }
+  
+  @media (max-width: 768px) {
+    .two-column {
+      grid-template-columns: 1fr;
+    }
+    
+    .body {
+      padding: 20px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <div class="header">
+    <h1>Procurement Intelligence <span>Mastersheet — Part 1</span></h1>
+    <div class="header-subtitle">Price Anatomy · PRICE Framework · 7-Step AI System</div>
+    <div class="header-contact">
+      Balamurugan G · Senior Supply Chain & Procurement Leader · 28 Years Experience<br>
+      ✉ <a href="mailto:balamurugan_gp@yahoo.com">balamurugan_gp@yahoo.com</a> | 
+      🔗 <a href="https://www.linkedin.com/in/bala-murugan-72785b360/">LinkedIn</a> |
+      💻 <a href="https://github.com/balamurugangp1971-hue/Balamurugan">GitHub</a>
+    </div>
+  </div>
+
+  <div class="body">
+
+    <!-- SECTION 1: UNIVERSAL PRICE ANATOMY -->
+    <div class="section">
+      <div class="section-title">📊 Universal Price Anatomy</div>
+      <div class="content-box">
+        <h3>How Any Product Price is Constructed</h3>
+        <p>Every product's landed cost is composed of five layers. Understanding these allows procurement professionals to identify true cost drivers and negotiate leverage points.</p>
+        
+        <table>
+          <thead>
+            <tr>
+              <th>Layer</th>
+              <th>Definition</th>
+              <th>Typical % Range</th>
+              <th>Negotiation Lever</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1. Raw Material Cost</td>
+              <td>Commodity cost of inputs (steel, plastic, chemicals, etc.)</td>
+              <td>25–45%</td>
+              <td>Volume lock-in contracts; commodity hedging</td>
+            </tr>
+            <tr>
+              <td>2. Manufacturing Overhead</td>
+              <td>Factory labor, utilities, equipment depreciation</td>
+              <td>15–30%</td>
+              <td>Capacity utilization; process automation partnerships</td>
+            </tr>
+            <tr>
+              <td>3. Intermediary Markup</td>
+              <td>Distributor, agent, or reseller margin</td>
+              <td>10–40%</td>
+              <td>Direct sourcing; bypassing middlemen (30–75% savings possible)</td>
+            </tr>
+            <tr>
+              <td>4. Logistics & Insurance</td>
+              <td>Freight, warehousing, customs, insurance</td>
+              <td>5–15%</td>
+              <td>Negotiated incoterms; freight consolidation; duty optimization</td>
+            </tr>
+            <tr>
+              <td>5. Margin & Profit</td>
+              <td>Supplier's operating margin + profit</td>
+              <td>8–20%</td>
+              <td>Volume commitments; long-term partnerships</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- SECTION 2: CHANNEL BYPASS STRATEGIES -->
+    <div class="section">
+      <div class="section-title">🎯 Channel Bypass Strategies (30–75% Savings)</div>
+      <div class="two-column">
+        <div class="content-box">
+          <h3>Direct Manufacturer Sourcing</h3>
+          <ul>
+            <li><strong>Eliminate:</strong> Distributor margin (10–40%)</li>
+            <li><strong>Direct to:</strong> Factory, sub-contract manufacturer, or OEM</li>
+            <li><strong>Typical savings:</strong> 15–25% on landed cost</li>
+            <li><strong>Trade-off:</strong> MOQ typically higher; payment terms stricter</li>
+          </ul>
+        </div>
+        
+        <div class="content-box">
+          <h3>Cross-Border Direct Import</h3>
+          <ul>
+            <li><strong>Eliminate:</strong> Domestic distributor (20–35%)</li>
+            <li><strong>Direct from:</strong> UAE, Malaysia, China, Turkey, Vietnam</li>
+            <li><strong>Typical savings:</strong> 20–35% vs. domestic</li>
+            <li><strong>Trade-off:</strong> Customs, documentation, extended lead time</li>
+          </ul>
+        </div>
+        
+        <div class="content-box">
+          <h3>Consolidation & Cluster Sourcing</h3>
+          <ul>
+            <li><strong>Combine:</strong> 5–10 SKUs in one RFQ to single vendor</li>
+            <li><strong>Negotiate:</strong> Volume discount across categories</li>
+            <li><strong>Typical savings:</strong> 8–15% on blended basket</li>
+            <li><strong>Trade-off:</strong> Single-source risk; need robust backup plan</li>
+          </ul>
+        </div>
+        
+        <div class="content-box">
+          <h3>Secondary Market / Refurbished</h3>
+          <ul>
+            <li><strong>Source:</strong> Refurbished, cosmetic-grade, or off-spec inventory</li>
+            <li><strong>Vendor base:</strong> Liquidators, overstock brokers, OEM secondary channels</li>
+            <li><strong>Typical savings:</strong> 30–60% on specific categories</li>
+            <li><strong>Trade-off:</strong> Quality variance; availability unpredictable</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 3: 10 GLOBAL COMPANY LESSONS -->
+    <div class="section">
+      <div class="section-title">🌐 10 Lessons from Global Procurement Leaders</div>
+      <div class="content-box">
+        <table>
+          <thead>
+            <tr>
+              <th>Lesson</th>
+              <th>Company / Strategy</th>
+              <th>Procurement Takeaway</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1. Demand Planning Precision</td>
+              <td>IKEA: 18-month forecast accuracy</td>
+              <td>Accurate demand planning reduces emergency buying 40%, cuts inventory 20%</td>
+            </tr>
+            <tr>
+              <td>2. Supplier Diversification</td>
+              <td>Toyota: 2–3 suppliers per critical component</td>
+              <td>Dual/triple sourcing eliminates single-vendor risk at 3–5% premium</td>
+            </tr>
+            <tr>
+              <td>3. Early Supplier Involvement</td>
+              <td>BMW: Design engineering with suppliers in R&D</td>
+              <td>Co-design reduces unit cost 12–18% vs. post-design procurement</td>
+            </tr>
+            <tr>
+              <td>4. TCO Over Unit Price</td>
+              <td>Apple: Total Cost of Ownership focus</td>
+              <td>Don't negotiate just price; include lead time, quality, support, warranty</td>
+            </tr>
+            <tr>
+              <td>5. Sustainability as Cost Driver</td>
+              <td>Patagonia: Lifecycle-cost procurement</td>
+              <td>Green/sustainable suppliers often reduce waste-related costs 15–25%</td>
+            </tr>
+            <tr>
+              <td>6. Regional Sourcing Hubs</td>
+              <td>Amazon: Regional consolidation centers</td>
+              <td>Establish procurement hubs in high-supply regions; reduce logistics 10–20%</td>
+            </tr>
+            <tr>
+              <td>7. Payment Term Leverage</td>
+              <td>Walmart: 60–90 day payment terms</td>
+              <td>Negotiate extended terms; invest in supply chain financing for discounts</td>
+            </tr>
+            <tr>
+              <td>8. Supplier Scorecards</td>
+              <td>Ford: Quarterly OTIF, quality, cost scorecards</td>
+              <td>Data-driven supplier management drives 5–10% annual cost improvement</td>
+            </tr>
+            <tr>
+              <td>9. Category Management</td>
+              <td>P&G: Dedicated category managers</td>
+              <td>Assign 1 owner per category; drive 8–15% savings through focus</td>
+            </tr>
+            <tr>
+              <td>10. Reverse Auction Discipline</td>
+              <td>Microsoft: E-procurement auctions</td>
+              <td>Competitive bidding (3–5 rounds) drives 10–25% savings on commodities</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- SECTION 4: 7-STEP AI PROCUREMENT SYSTEM -->
+    <div class="section">
+      <div class="section-title">🤖 7-Step AI Procurement System (Claude Integration)</div>
+      
+      <div class="content-box">
+        <h3>Step 1: Demand Intake & SKU Classification</h3>
+        <p><span class="badge">AI Input</span>Claude analyzes incoming request (email, SAP PO, manual brief). Output: Categorized request with commodity class, urgency flag, estimated volume, and sourcing strategy recommendation.</p>
+      </div>
+      
+      <div class="content-box">
+        <h3>Step 2: Supplier Intelligence & Shortlisting</h3>
+        <p><span class="badge">AI Input</span>Claude queries validated supplier database (pre-loaded with 425+ vendor records). Output: 8–10 pre-screened suppliers ranked by price, OTIF, quality score, and risk flags.</p>
+      </div>
+      
+      <div class="content-box">
+        <h3>Step 3: RFQ Template Auto-Generation</h3>
+        <p><span class="badge">AI Input</span>Claude generates category-specific RFQ template with T&C, MOQ, lead time, quality specs, and payment terms. Output: Deployment-ready RFQ document (3 formats: email, Word, PDF).</p>
+      </div>
+      
+      <div class="content-box">
+        <h3>Step 4: Comparative Evaluation Matrix</h3>
+        <p><span class="badge">AI Input</span>Claude receives 5–8 vendor quotations (prices, terms, lead times). Output: Sortable evaluation matrix scoring on price, lead time, MOQ compliance, quality rating, payment terms, and overall TCO recommendation.</p>
+      </div>
+      
+      <div class="content-box">
+        <h3>Step 5: Should-Cost Modeling</h3>
+        <p><span class="badge">AI Input</span>Claude deconstructs price using market benchmarks + price anatomy layers. Output: Should-cost vs. actual-cost gap analysis; identifies over-pricing and negotiation targets.</p>
+      </div>
+      
+      <div class="content-box">
+        <h3>Step 6: Negotiation Playbook</h3>
+        <p><span class="badge">AI Input</span>Claude generates supplier-specific playbook with 3–5 negotiation levers (volume commitment, payment terms, lead time trade-offs). Output: Tactical negotiation brief for procurement team.</p>
+      </div>
+      
+      <div class="content-box">
+        <h3>Step 7: Weekly Risk Digest & Spend Report</h3>
+        <p><span class="badge">AI Input</span>Claude aggregates weekly supplier performance, spend by category, and geopolitical flags. Output: One-page Board-ready dashboard showing risk score, cost savings achieved, and performance trends.</p>
+      </div>
+    </div>
+
+    <!-- SECTION 5: PRICE FRAMEWORK (PRICE Model) -->
+    <div class="section">
+      <div class="section-title">💰 PRICE Framework — Universal Cost Deconstruction</div>
+      <div class="content-box">
+        <h3>P – Production Cost Deconstruction</h3>
+        <p>Break down unit cost: raw material + labor + overhead. Identify if supplier is making excessive margin or if commodity input cost has dropped. Cross-reference with published commodity indices (LME, NCDEX, etc.).</p>
+      </div>
+      
+      <div class="content-box">
+        <h3>R – Route Intelligence</h3>
+        <p>Map supply chain route: manufacturer → distributor → agent → end-user. Identify intermediaries adding markup. Direct sourcing eliminates 1–3 layers. Cross-border import optimizes incoterms (CIF vs. FOB).</p>
+      </div>
+      
+      <div class="content-box">
+        <h3>I – Intermediary Margin Mapping</h3>
+        <p>Calculate each intermediary's margin. Distributors typically take 15–40%. Direct manufacturer pricing reveals true margin. Negotiate margin reduction or bypass entirely. Create tiered pricing structure: volume ≥ 100 units = 20% discount.</p>
+      </div>
+      
+      <div class="content-box">
+        <h3>C – Competitive Leverage</h3>
+        <p>Benchmark against 3–5 competing suppliers. Create RFQ with transparent specifications. Run mini-auction (3 rounds) or reverse bidding. Leverage data to negotiate: "Competitor Y quoted ₹X; can you match?"</p>
+      </div>
+      
+      <div class="content-box">
+        <h3>E – Execution & Lock-In</h3>
+        <p>Once negotiated, lock in terms for 12–24 months via contract. Include escalation clause tied to commodity index (e.g., ±5% if raw material cost moves >10%). Document SLA, quality, lead time, warranty, and exit clause.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    <p>Procurement Intelligence Mastersheet — Part 1 · June 2026</p>
+    <p>Balamurugan G | <a href="mailto:balamurugan_gp@yahoo.com">balamurugan_gp@yahoo.com</a> | 
+    <a href="https://www.linkedin.com/in/bala-murugan-72785b360/">LinkedIn</a> | 
+    <a href="https://github.com/balamurugangp1971-hue/Balamurugan">GitHub</a></p>
+  </div>
+
+</div>
+
+</body>
+</html>
