@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Procurement Intelligence Mastersheet — Part 2 | Balamurugan G</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    font-size: 13px;
+    line-height: 1.6;
+    color: #1A2235;
+    background: #F4F6FA;
+  }
+  
+  .page {
+    max-width: 950px;
+    margin: 32px auto;
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+  }
+  
+  .header {
+    background: linear-gradient(135deg, #0C2340 0%, #1A3A60 100%);
+    padding: 36px 40px;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .header::after {
+    content: '';
+    position: absolute;
+    right: -60px;
+    top: -60px;
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.04);
+  }
+  
+  .header h1 {
+    font-size: 28px;
+    font-weight: 800;
+    margin-bottom: 6px;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .header h1 span {
+    color: #F0A500;
+  }
+  
+  .header-subtitle {
+    font-size: 13px;
+    color: rgba(255,255,255,0.75);
+    margin-bottom: 12px;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .header-contact {
+    font-size: 11px;
+    color: rgba(255,255,255,0.65);
+    position: relative;
+    z-index: 1;
+  }
+  
+  .header-contact a {
+    color: #F0A500;
+    text-decoration: none;
+  }
+  
+  .body {
+    padding: 40px;
+  }
+  
+  .section {
+    margin-bottom: 36px;
+  }
+  
+  .section-title {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #0C2340;
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #F0A500;
+    display: inline-block;
+  }
+  
+  .content-box {
+    background: #F8FAFF;
+    border: 1px solid #DCE6F5;
+    border-radius: 6px;
+    padding: 18px;
+    margin-bottom: 12px;
+  }
+  
+  .content-box h3 {
+    font-size: 12px;
+    font-weight: 700;
+    color: #0C2340;
+    margin-bottom: 10px;
+  }
+  
+  .content-box p {
+    font-size: 12px;
+    color: #3A4A60;
+    line-height: 1.7;
+    margin-bottom: 8px;
+  }
+  
+  .kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin: 12px 0;
+  }
+  
+  .kpi-box {
+    background: #fff;
+    border: 1px solid #E8EDF8;
+    border-radius: 6px;
+    padding: 14px;
+    text-align: center;
+  }
+  
+  .kpi-value {
+    font-size: 24px;
+    font-weight: 800;
+    color: #F0A500;
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  
+  .kpi-label {
+    font-size: 11px;
+    color: #3A4A60;
+    font-weight: 600;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 12px;
+    font-size: 11.5px;
+  }
+  
+  table thead {
+    background: #0C2340;
+    color: #fff;
+  }
+  
+  table th {
+    padding: 10px 12px;
+    text-align: left;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+  }
+  
+  table tbody tr:nth-child(even) {
+    background: #F4F7FF;
+  }
+  
+  table tbody tr:nth-child(odd) {
+    background: #fff;
+  }
+  
+  table td {
+    padding: 9px 12px;
+    border-bottom: 1px solid #E8EDF8;
+    color: #2C3E55;
+  }
+  
+  table td:first-child {
+    font-weight: 600;
+    color: #0C2340;
+  }
+  
+  .badge {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 4px;
+    margin-right: 4px;
+  }
+  
+  .badge-critical { background: #FEE2E2; color: #B91C1C; }
+  .badge-warning { background: #FEF3C7; color: #92400E; }
+  .badge-safe { background: #D1FAE5; color: #065F46; }
+  
+  .two-column {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 12px;
+  }
+  
+  .list-box {
+    background: #F8FAFF;
+    border: 1px solid #DCE6F5;
+    border-radius: 6px;
+    padding: 14px;
+  }
+  
+  .list-box ul {
+    padding-left: 18px;
+    font-size: 12px;
+    color: #3A4A60;
+  }
+  
+  .list-box li {
+    margin-bottom: 6px;
+    line-height: 1.5;
+  }
+  
+  .list-box li::marker {
+    color: #F0A500;
+  }
+  
+  .footer {
+    background: #0C2340;
+    color: #fff;
+    padding: 24px 40px;
+    text-align: center;
+    font-size: 11px;
+  }
+  
+  .footer a {
+    color: #F0A500;
+    text-decoration: none;
+  }
+  
+  @media (max-width: 768px) {
+    .two-column, .kpi-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .body {
+      padding: 20px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <div class="header">
+    <h1>Procurement Intelligence <span>Mastersheet — Part 2</span></h1>
+    <div class="header-subtitle">KPI Dashboard · Risk Matrix · AI Tools · Future Roadmap</div>
+    <div class="header-contact">
+      Balamurugan G · Senior Supply Chain & Procurement Leader · 28 Years Experience<br>
+      ✉ <a href="mailto:balamurugan_gp@yahoo.com">balamurugan_gp@yahoo.com</a> | 
+      🔗 <a href="https://www.linkedin.com/in/bala-murugan-72785b360/">LinkedIn</a> |
+      💻 <a href="https://github.com/balamurugangp1971-hue/Balamurugan">GitHub</a>
+    </div>
+  </div>
+
+  <div class="body">
+
+    <!-- SECTION 1: KPI DASHBOARD -->
+    <div class="section">
+      <div class="section-title">📊 CPO-Standard KPI Dashboard (6 Pillars)</div>
+      
+      <div class="content-box">
+        <h3>Pillar 1: Cost & Spend Management</h3>
+        <div class="kpi-grid">
+          <div class="kpi-box">
+            <div class="kpi-value">₹18–22 Cr</div>
+            <div class="kpi-label">Annual Spend Under Management</div>
+          </div>
+          <div class="kpi-box">
+            <div class="kpi-value">₹1.5+ Cr</div>
+            <div class="kpi-label">YoY Documented Savings</div>
+          </div>
+          <div class="kpi-box">
+            <div class="kpi-value">−12%</div>
+            <div class="kpi-label">Spot Purchase Premium Gap</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="content-box">
+        <h3>Pillar 2: Supplier Quality & Delivery</h3>
+        <div class="kpi-grid">
+          <div class="kpi-box">
+            <div class="kpi-value">98.2%</div>
+            <div class="kpi-label">On-Time In-Full (OTIF) Rate</div>
+          </div>
+          <div class="kpi-box">
+            <div class="kpi-value">99.1%</div>
+            <div class="kpi-label">Incoming Quality (Accepted %)</div>
+          </div>
+          <div class="kpi-box">
+            <div class="kpi-value">3.2 days</div>
+            <div class="kpi-label">Average RFQ Cycle Time</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="content-box">
+        <h3>Pillar 3: Vendor Base Health</h3>
+        <div class="kpi-grid">
+          <div class="kpi-box">
+            <div class="kpi-value">425+</div>
+            <div class="kpi-label">Total Vendors Managed</div>
+          </div>
+          <div class="kpi-box">
+            <div class="kpi-value">18%</div>
+            <div class="kpi-label">Vendor Base Consolidation (YoY)</div>
+          </div>
+          <div class="kpi-box">
+            <div class="kpi-value">2.8</div>
+            <div class="kpi-label">Avg. Suppliers per Category</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 2: SUPPLY RISK MATRIX -->
+    <div class="section">
+      <div class="section-title">⚠️ Supply Risk Matrix with AI Flags</div>
+      <div class="content-box">
+        <table>
+          <thead>
+            <tr>
+              <th>Risk Factor</th>
+              <th>Measurement</th>
+              <th>Green</th>
+              <th>Amber</th>
+              <th>Red</th>
+              <th>AI Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Supplier Concentration</td>
+              <td>% of spend to single vendor</td>
+              <td>&lt;25%</td>
+              <td>25–35%</td>
+              <td>&gt;35%</td>
+              <td>Automate dual-source RFQ</td>
+            </tr>
+            <tr>
+              <td>Delivery Performance</td>
+              <td>OTIF % (On-Time In-Full)</td>
+              <td>&gt;98%</td>
+              <td>95–98%</td>
+              <td>&lt;95%</td>
+              <td>Weekly corrective alert</td>
+            </tr>
+            <tr>
+              <td>Quality Incidents</td>
+              <td>Rejected/Reworked %</td>
+              <td>&lt;0.5%</td>
+              <td>0.5–2%</td>
+              <td>&gt;2%</td>
+              <td>Supplier audit; cost recovery</td>
+            </tr>
+            <tr>
+              <td>Financial Health</td>
+              <td>Payment extension requests</td>
+              <td>Normal terms</td>
+              <td>1–2 extensions/year</td>
+              <td>&gt;2 requests</td>
+              <td>Credit limit review</td>
+            </tr>
+            <tr>
+              <td>Geopolitical Risk</td>
+              <td>Country risk level (1–5)</td>
+              <td>Level 1–2</td>
+              <td>Level 2–3</td>
+              <td>Level 3+</td>
+              <td>Safety stock increase</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- SECTION 3: AI TOOLS ECOSYSTEM -->
+    <div class="section">
+      <div class="section-title">🤖 AI Tools Ecosystem 2025–2026</div>
+      <div class="two-column">
+        <div class="list-box">
+          <h3>Core AI Platforms</h3>
+          <ul>
+            <li><strong>Claude (Anthropic)</strong> — RFQ drafting, evaluation matrices</li>
+            <li><strong>ChatGPT (OpenAI)</strong> — Market research, pricing trends</li>
+            <li><strong>Gemini (Google)</strong> — Spend analytics, risk scoring</li>
+            <li><strong>Copilot (Microsoft)</strong> — Excel automation, dashboard building</li>
+          </ul>
+        </div>
+        
+        <div class="list-box">
+          <h3>Procurement-Specific</h3>
+          <ul>
+            <li><strong>Ariba (SAP)</strong> — Supplier management, P2P</li>
+            <li><strong>Coupa</strong> — Spend visibility, supplier intelligence</li>
+            <li><strong>Jaggr</strong> — Supplier risk monitoring</li>
+            <li><strong>BravoSolution</strong> — Sourcing events, RFQ automation</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 4: INVENTORY FORMULAS -->
+    <div class="section">
+      <div class="section-title">📐 Key Procurement & Inventory Formulas</div>
+      
+      <div class="content-box">
+        <h3>Economic Order Quantity (EOQ)</h3>
+        <p><strong>EOQ = √(2 × D × S / H)</strong><br>
+        <em>D = Annual Demand | S = Ordering Cost per Order | H = Holding Cost per Unit/Year</em><br>
+        Optimize order size to minimize total inventory cost.</p>
+      </div>
+      
+      <div class="content-box">
+        <h3>Reorder Point (ROP)</h3>
+        <p><strong>ROP = (Average Daily Usage × Lead Time) + Safety Stock</strong><br>
+        Determines when to trigger next purchase order to avoid stockout.</p>
+      </div>
+      
+      <div class="content-box">
+        <h3>Total Cost of Ownership (TCO)</h3>
+        <p><strong>TCO = Product Cost + Delivery + Quality Cost + Holding Cost − Discounts</strong><br>
+        Compare true cost across suppliers beyond just unit price.</p>
+      </div>
+      
+      <div class="content-box">
+        <h3>Inventory Turnover Ratio</h3>
+        <p><strong>Inventory Turnover = COGS / Average Inventory Value</strong><br>
+        Higher ratio = better management. Industry benchmark: 8–12x/year.</p>
+      </div>
+    </div>
+
+    <!-- SECTION 5: 7 PROCUREMENT FRAMEWORKS -->
+    <div class="section">
+      <div class="section-title">📋 7 Procurement Frameworks for Enterprise Success</div>
+      
+      <table>
+        <thead>
+          <tr>
+            <th>Framework</th>
+            <th>Use Case</th>
+            <th>Key Output</th>
+            <th>Timeline</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1. Spend Analysis</td>
+            <td>Identify high-risk, high-value categories</td>
+            <td>Spend matrix; Pareto analysis</td>
+            <td>2–3 weeks</td>
+          </tr>
+          <tr>
+            <td>2. Supplier Risk Scorecard</td>
+            <td>Quantify supplier health across dimensions</td>
+            <td>Risk score (0–100); Mitigation plan</td>
+            <td>4 weeks</td>
+          </tr>
+          <tr>
+            <td>3. Dual-Sourcing Strategy</td>
+            <td>Reduce single-supplier dependency</td>
+            <td>Approved 2nd source; SLA negotiated</td>
+            <td>6–8 weeks</td>
+          </tr>
+          <tr>
+            <td>4. Category Strategic Sourcing</td>
+            <td>Deep-dive into 1–2 strategic categories</td>
+            <td>RFQ with 5–8 suppliers; Contract</td>
+            <td>8–12 weeks</td>
+          </tr>
+          <tr>
+            <td>5. TCO Modeling</td>
+            <td>Lifetime cost comparison</td>
+            <td>TCO matrix; Best-value selection</td>
+            <td>3–4 weeks</td>
+          </tr>
+          <tr>
+            <td>6. Supply Chain Resilience</td>
+            <td>Stress-test supplier base</td>
+            <td>Contingency plan; Backup activation</td>
+            <td>6 weeks</td>
+          </tr>
+          <tr>
+            <td>7. Sustainability Procurement</td>
+            <td>Source sustainable materials</td>
+            <td>ESG scorecards; Cost/benefit quantified</td>
+            <td>Ongoing</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- SECTION 6: FUTURE ROADMAP -->
+    <div class="section">
+      <div class="section-title">🚀 Future Roadmap: 2026–2030</div>
+      
+      <div class="content-box">
+        <h3>2026: Stabilize & Scale AI</h3>
+        <ul style="padding-left: 18px; font-size: 12px; color: #3A4A60;">
+          <li>Deploy 7-step Claude AI across 100% of categories</li>
+          <li>Establish 3-day RFQ cycle globally</li>
+          <li>Build unified spend dashboard for CFO</li>
+          <li>Realize ₹3.5+ Crore annual benefit</li>
+        </ul>
+      </div>
+      
+      <div class="content-box">
+        <h3>2027: Predictive Analytics & Digitization</h3>
+        <ul style="padding-left: 18px; font-size: 12px; color: #3A4A60;">
+          <li>Implement demand forecasting AI</li>
+          <li>Automate invoice-to-payment cycle (40% reduction)</li>
+          <li>Real-time supplier risk monitoring via IoT</li>
+          <li>Target: ₹4.5+ Crore annual savings</li>
+        </ul>
+      </div>
+      
+      <div class="content-box">
+        <h3>2028–2030: Blockchain, Autonomy & Strategic Transformation</h3>
+        <ul style="padding-left: 18px; font-size: 12px; color: #3A4A60;">
+          <li>Pilot blockchain for supplier authentication</li>
+          <li>Fully autonomous procurement agents for commodities</li>
+          <li>AI negotiates multi-year contracts autonomously</li>
+          <li>Target: ₹10+ Crore annual value creation</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    <p>Procurement Intelligence Mastersheet — Part 2 · June 2026</p>
+    <p>Balamurugan G | <a href="mailto:balamurugan_gp@yahoo.com">balamurugan_gp@yahoo.com</a> | 
+    <a href="https://www.linkedin.com/in/bala-murugan-72785b360/">LinkedIn</a> | 
+    <a href="https://github.com/balamurugangp1971-hue/Balamurugan">GitHub</a></p>
+  </div>
+
+</div>
+
+</body>
+</html>
