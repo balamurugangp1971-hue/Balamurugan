@@ -107,3 +107,4 @@ I regularly publish supply chain insights and frameworks on LinkedIn. Recent top
 ---
 *"Procurement is not just about buying — it is about creating value at every step of the supply chain."*  
 *© 2026 Balamurugan G | Chennai, India*
+Fix text encoding and update project links
