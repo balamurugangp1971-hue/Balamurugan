@@ -1,4 +1,4 @@
-# 🏆 Balamurugan G — Procurement Intelligence Portfolio
+# ðŸ† Balamurugan G â€” Procurement Intelligence Portfolio
 
 <div align="center">
 
@@ -13,19 +13,19 @@
 
 ---
 
-## 📊 Career Snapshot
+## ðŸ“Š Career Snapshot
 
 | Metric | Achievement |
 |--------|-------------|
-| 💰 Annual Spend Managed | ₹50 Crore+ |
-| 📈 Documented Annual Savings | ₹1.5 Crore+ |
-| 🏭 Vendor Network | 425+ Suppliers |
-| 🌏 Sourcing Regions | India, UAE, China, Southeast Asia |
-| 🏢 Industries Served | Pharma, Manufacturing, FMCG, Export |
+| ðŸ’° Annual Spend Managed | â‚¹50 Crore+ |
+| ðŸ“ˆ Documented Annual Savings | â‚¹1.5 Crore+ |
+| ðŸ­ Vendor Network | 425+ Suppliers |
+| ðŸŒ Sourcing Regions | India, UAE, China, Southeast Asia |
+| ðŸ¢ Industries Served | Pharma, Manufacturing, FMCG, Export |
 
 ---
 
-## 🎯 Executive Profile
+## ðŸŽ¯ Executive Profile
 
 Results-driven **Senior Supply Chain & Procurement Leader** with 28 years of progressive experience spanning strategic sourcing, vendor development, cost reduction, and international procurement. Proven track record of delivering measurable cost savings through direct manufacturer sourcing, sustainability initiatives, and process optimization.
 
@@ -33,7 +33,7 @@ Currently seeking **DGM / GM / Head of Supply Chain & Procurement** roles, prefe
 
 ---
 
-## 🔑 Core Competencies
+## ðŸ”‘ Core Competencies
 
 | Strategic | Operational | Compliance |
 |-----------|-------------|------------|
@@ -46,13 +46,13 @@ Currently seeking **DGM / GM / Head of Supply Chain & Procurement** roles, prefe
 
 ---
 
-## 🏭 Professional Experience
+## ðŸ­ Professional Experience
 
-### Deco De Trend — 100% Export Oriented Unit
+### Deco De Trend â€” 100% Export Oriented Unit
 **Senior Supply Chain & Procurement Manager** | Chennai | Until March 2026
 
-- Managed end-to-end procurement for a 100% EOU with annual spend of ₹50 Crore+
-- Achieved documented annual savings of ₹1.5 Crore+ through direct manufacturer sourcing
+- Managed end-to-end procurement for a 100% EOU with annual spend of â‚¹50 Crore+
+- Achieved documented annual savings of â‚¹1.5 Crore+ through direct manufacturer sourcing
 - Led a **waste-to-energy boiler conversion project** generating significant recurring cost savings
 - Implemented **solar and LED sustainability initiatives** reducing utility expenditure by 25%+
 - Maintained full compliance across CTPAT, BSCI, and Walmart audit frameworks
@@ -61,7 +61,7 @@ Currently seeking **DGM / GM / Head of Supply Chain & Procurement** roles, prefe
 ---
 
 ### Sami Labs Limited
-**Procurement Manager — Pharma & Nutraceuticals** | Chennai
+**Procurement Manager â€” Pharma & Nutraceuticals** | Chennai
 
 - Managed herbal extract and API procurement for pharmaceutical and nutraceutical divisions
 - Developed sourcing strategies for botanical raw materials across domestic and international suppliers
@@ -78,109 +78,100 @@ Currently seeking **DGM / GM / Head of Supply Chain & Procurement** roles, prefe
 
 ---
 
-## 🎓 Qualifications & Certifications
+## ðŸŽ“ Qualifications & Certifications
 
 | Credential | Issuing Body | Status |
 |------------|-------------|--------|
-| Full Membership (F/3737/MD) | IIMM — Indian Institute of Materials Management | ✅ Active |
-| CPM — Certified Purchasing Manager | ISM USA — Institute for Supply Management | 📝 Attempted |
-| ISO 9001:2015 Internal Auditor | International Organization for Standardization | ✅ Certified |
-| CTPAT Compliance | U.S. Customs & Border Protection | ✅ Experienced |
-| BSCI Auditor Readiness | amfori BSCI | ✅ Experienced |
+| Full Membership (F/3737/MD) | IIMM â€” Indian Institute of Materials Management | âœ… Active |
+| CPM â€” Certified Purchasing Manager | ISM USA â€” Institute for Supply Management | ðŸ“ Attempted |
+| ISO 9001:2015 Internal Auditor | International Organization for Standardization | âœ… Certified |
+| CTPAT Compliance | U.S. Customs & Border Protection | âœ… Experienced |
+| BSCI Auditor Readiness | amfori BSCI | âœ… Experienced |
 
 ---
 
-## 🌟 Key Achievements
+## ðŸŒŸ Key Achievements
 
-### 💡 Cost Reduction Initiatives
-- **Direct Manufacturer Sourcing Program** — Eliminated middlemen, achieving 8–12% average cost reduction across key categories
-- **Waste-to-Energy Boiler Conversion** — Repurposed production waste as boiler fuel, delivering recurring annual savings
-- **LED & Solar Upgrade Project** — Reduced energy consumption by 25%+, with documented ROI within 18 months
+### ðŸ’¡ Cost Reduction Initiatives
+- **Direct Manufacturer Sourcing Program** â€” Eliminated middlemen, achieving 8â€“12% average cost reduction across key categories
+- **Waste-to-Energy Boiler Conversion** â€” Repurposed production waste as boiler fuel, delivering recurring annual savings
+- **LED & Solar Upgrade Project** â€” Reduced energy consumption by 25%+, with documented ROI within 18 months
 
-### 🔍 Compliance & Audit Excellence
+### ðŸ” Compliance & Audit Excellence
 - Zero major non-conformities across multiple CTPAT, BSCI, and Walmart audits
 - Developed internal audit checklists aligned to ISO 9001:2015 standards
 - Led cross-functional teams through audit preparation and remediation cycles
 
-### 🌏 International Sourcing
+### ðŸŒ International Sourcing
 - Established sourcing corridors across China, Southeast Asia, and UAE
 - Managed currency risk and landed cost analysis for import decisions
 - Coordinated with freight forwarders for optimized shipping terms (FOB / CIF / DDP)
 
 ---
 
-## 📂 Portfolio Projects
+## ðŸ“‚ Portfolio Projects
 
 | Project | Description | Status |
 |---------|-------------|--------|
-| 📉 [Bottom Price Framework](./Bottom_Price_Framework/index.html) | Methodology to identify true market floor price for any commodity | ✅ Live |
-| 🔍 [Strategic Sourcing Skill Gap Analysis](./Strategic_Sourcing_Skill_Gap/index.html) | Framework mapping SCM skill gaps vs industry requirements | ✅ Live |
+| ðŸ“‰ [Bottom Price Framework](./Bottom_Price_Framework/index.html) | Methodology to identify true market floor price for any commodity | âœ… Live |
+| ðŸ” [Strategic Sourcing Skill Gap Analysis](./Strategic_Sourcing_Skill_Gap/index.html) | Framework mapping SCM skill gaps vs industry requirements | âœ… Live |
 
 ---
 
-## 📂 Repository Structure
+## ðŸ“‚ Repository Structure
 
 ```
 Balamurugan/
-│
-├── 📄 README.md                          ← You are here
-├── 📄 index.html                         ← GitHub Pages landing page
-│
-├── 📁 Bottom_Price_Framework/
-│   └── index.html                        ← Bottom Price Framework tool
-│
-├── 📁 Strategic_Sourcing_Skill_Gap/
-│   └── index.html                        ← Skill Gap Analysis framework
-│
-├── 📁 resume/
-│   └── Balamurugan_G_Resume.pdf          ← ATS-friendly resume (DGM/GM level)
-│
-└── 📁 linkedin-content/
-    └── infographics/                      ← Supply chain thought leadership visuals
+â”‚
+â”œâ”€â”€ ðŸ“„ README.md                          â† You are here
+â”œâ”€â”€ ðŸ“„ index.html                         â† GitHub Pages landing page
+â”‚
+â”œâ”€â”€ ðŸ“ Bottom_Price_Framework/
+â”‚   â””â”€â”€ index.html                        â† Bottom Price Framework tool
+â”‚
+â”œâ”€â”€ ðŸ“ Strategic_Sourcing_Skill_Gap/
+â”‚   â””â”€â”€ index.html                        â† Skill Gap Analysis framework
+â”‚
+â”œâ”€â”€ ðŸ“ resume/
+â”‚   â””â”€â”€ Balamurugan_G_Resume.pdf          â† ATS-friendly resume (DGM/GM level)
+â”‚
+â””â”€â”€ ðŸ“ linkedin-content/
+    â””â”€â”€ infographics/                      â† Supply chain thought leadership visuals
 ```
 
 ---
 
-## 📣 LinkedIn Thought Leadership
+## ðŸ“£ LinkedIn Thought Leadership
 
 I regularly publish supply chain insights and frameworks on LinkedIn. Recent topics include:
 
-- 🏪 **DMart Supply Chain Model** — How everyday low cost is powered by operational excellence
-- 🚗 **Toyota Production System** — Applying TPS principles to Indian manufacturing
-- 👗 **Zudio / Trent FOCO Model** — Franchise-owned, company-operated retail expansion strategy
-- 📦 **Strategic Sourcing Frameworks** — Category management for mid-size manufacturers
+- ðŸª **DMart Supply Chain Model** â€” How everyday low cost is powered by operational excellence
+- ðŸš— **Toyota Production System** â€” Applying TPS principles to Indian manufacturing
+- ðŸ‘— **Zudio / Trent FOCO Model** â€” Franchise-owned, company-operated retail expansion strategy
+- ðŸ“¦ **Strategic Sourcing Frameworks** â€” Category management for mid-size manufacturers
 
-> 📌 *Follow me on LinkedIn for weekly supply chain insights tailored to India's manufacturing and pharma sectors.*
+> ðŸ“Œ *Follow me on LinkedIn for weekly supply chain insights tailored to India's manufacturing and pharma sectors.*
 >
-> 🔗 **[linkedin.com/in/bala-murugan-72785b360](https://www.linkedin.com/in/bala-murugan-72785b360/)**
+> ðŸ”— **[linkedin.com/in/bala-murugan-72785b360](https://www.linkedin.com/in/bala-murugan-72785b360/)**
 
 ---
 
-## 📬 Contact
+## ðŸ“¬ Contact
 
 | Channel | Details |
 |---------|---------|
-| 📧 Email | balamurugan_gp@yahoo.com |
-| 💼 LinkedIn | [linkedin.com/in/bala-murugan-72785b360](https://www.linkedin.com/in/bala-murugan-72785b360/) |
-| 📍 Location | Chennai, Tamil Nadu, India |
-| 🎯 Open To | DGM / GM / Head — Supply Chain & Procurement |
-| 🏭 Preferred Sectors | Pharmaceutical, Manufacturing, FMCG |
-
----
-
-## 📈 How to Increase GitHub Profile Views
-
-To improve recruiter visibility on this portfolio:
-- Share this GitHub link in your LinkedIn "Featured" section
-- Add the GitHub Pages URL to your LinkedIn profile contact info
-- Mention it in your resume under "Portfolio / Projects"
+| ðŸ“§ Email | balamurugan_gp@yahoo.com |
+| ðŸ’¼ LinkedIn | [linkedin.com/in/bala-murugan-72785b360](https://www.linkedin.com/in/bala-murugan-72785b360/) |
+| ðŸ“ Location | Chennai, Tamil Nadu, India |
+| ðŸŽ¯ Open To | DGM / GM / Head â€” Supply Chain & Procurement |
+| ðŸ­ Preferred Sectors | Pharmaceutical, Manufacturing, FMCG |
 
 ---
 
 <div align="center">
 
-*"Procurement is not just about buying — it is about creating value at every step of the supply chain."*
+*"Procurement is not just about buying â€” it is about creating value at every step of the supply chain."*
 
-**© 2026 Balamurugan G | Chennai, India**
+**Â© 2026 Balamurugan G | Chennai, India**
 
 </div>
