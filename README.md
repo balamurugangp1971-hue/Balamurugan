@@ -168,6 +168,15 @@ I regularly publish supply chain insights and frameworks on LinkedIn. Recent top
 
 ---
 
+## ðŸ“ˆ How to Increase GitHub Profile Views
+
+To improve recruiter visibility on this portfolio:
+- Share this GitHub link in your LinkedIn "Featured" section
+- Add the GitHub Pages URL to your LinkedIn profile contact info
+- Mention it in your resume under "Portfolio / Projects"
+
+---
+
 <div align="center">
 
 *"Procurement is not just about buying â€” it is about creating value at every step of the supply chain."*
