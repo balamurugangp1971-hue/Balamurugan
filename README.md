@@ -110,13 +110,9 @@ Currently seeking **DGM / GM / Head of Supply Chain & Procurement** roles, prefe
 ---
 
 ## ðŸ“‚ Portfolio Projects
+* 📈 **[Bottom Price Framework (BPF)](./Bottom_Price_Framework)** — A data-driven methodology to secure baseline market pricing.
+* 🎯 **[Strategic Sourcing Skill Gap Analysis](./Strategic_Sourcing_Skill_Gap)** — A capability mapping matrix to elevate procurement team competencies.
 
-| Project | Description | Status |
-|---------|-------------|--------|
-| ðŸ“‰ [Bottom Price Framework](./Bottom_Price_Framework/index.html) | Methodology to identify true market floor price for any commodity | âœ… Live |
-| ðŸ” [Strategic Sourcing Skill Gap Analysis](./Strategic_Sourcing_Skill_Gap/index.html) | Framework mapping SCM skill gaps vs industry requirements | âœ… Live |
-
----
 
 ## ðŸ“‚ Repository Structure
 
