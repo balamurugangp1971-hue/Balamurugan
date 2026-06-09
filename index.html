@@ -2,238 +2,201 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Balamurugan G — Procurement Intelligence Portfolio</title>
 <style>
-*{box-sizing:border-box;margin:0;padding:0;}
-body{font-family:'Segoe UI',Arial,sans-serif;background:#0a1628;color:#fff;min-height:100vh;}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:#F0F4F8;color:#1A202C}
+.wrap{max-width:720px;margin:0 auto;padding:0 0 40px}
 
-.hero{background:linear-gradient(135deg,#0c2340 0%,#1a3a60 60%,#0c2340 100%);padding:48px 24px 40px;text-align:center;position:relative;overflow:hidden;}
-.hero::before{content:'';position:absolute;top:-80px;right:-80px;width:300px;height:300px;border-radius:50%;background:rgba(184,134,11,0.08);}
-.hero::after{content:'';position:absolute;bottom:-60px;left:-60px;width:220px;height:220px;border-radius:50%;background:rgba(255,255,255,0.03);}
-.hero-tag{display:inline-block;background:#b8860b;color:#0c2340;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:5px 16px;border-radius:2px;margin-bottom:18px;}
-.hero h1{font-size:36px;font-weight:800;color:#fff;line-height:1.15;margin-bottom:8px;position:relative;z-index:1;}
-.hero h1 span{color:#b8860b;}
-.hero-sub{color:rgba(255,255,255,0.7);font-size:14px;line-height:1.6;margin-bottom:6px;position:relative;z-index:1;}
-.hero-contact{color:rgba(255,255,255,0.5);font-size:12px;margin-top:10px;position:relative;z-index:1;}
-.hero-contact a{color:#b8860b;text-decoration:none;}
+/* HEADER */
+.hero{background:linear-gradient(135deg,#0F2A4A 0%,#1A4A7A 100%);padding:36px 32px 28px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-60px;right:-60px;width:220px;height:220px;border-radius:50%;background:rgba(255,196,0,0.10)}
+.hero::after{content:'';position:absolute;bottom:-40px;left:-20px;width:130px;height:130px;border-radius:50%;background:rgba(255,255,255,0.04)}
+.hero-badge{display:inline-block;background:#FFB400;color:#0F2A4A;font-size:10px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;padding:4px 12px;border-radius:20px;margin-bottom:14px}
+.hero h1{font-size:28px;font-weight:800;color:#fff;line-height:1.2;margin-bottom:6px;position:relative;z-index:1}
+.hero-role{color:#FFB400;font-size:14px;font-weight:600;margin-bottom:8px;position:relative;z-index:1}
+.hero-sub{color:rgba(255,255,255,0.7);font-size:12px;line-height:1.7;position:relative;z-index:1}
+.hero-links{display:flex;gap:12px;margin-top:16px;flex-wrap:wrap;position:relative;z-index:1}
+.hero-link{background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.25);color:#fff;font-size:11px;padding:6px 14px;border-radius:20px;text-decoration:none;transition:background 0.2s}
+.hero-link:hover{background:rgba(255,255,255,0.22)}
 
-.kpi-bar{display:grid;grid-template-columns:repeat(5,1fr);background:#050f1e;border-bottom:3px solid #b8860b;}
-.kpi{padding:14px 8px;text-align:center;border-right:1px solid rgba(255,255,255,0.06);}
-.kpi:last-child{border-right:none;}
-.kpi-v{font-size:20px;font-weight:800;color:#b8860b;display:block;font-family:'Arial',sans-serif;}
-.kpi-l{font-size:9px;color:rgba(255,255,255,0.5);margin-top:3px;display:block;line-height:1.35;text-transform:uppercase;letter-spacing:0.5px;}
+/* STATS */
+.stats{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:#D0D8E4}
+.stat{background:#fff;padding:14px 8px;text-align:center}
+.stat-num{font-size:20px;font-weight:800;color:#0F2A4A;display:block}
+.stat-lbl{font-size:9px;color:#6B7280;margin-top:3px;display:block;line-height:1.4}
 
-.container{max-width:960px;margin:0 auto;padding:36px 20px;}
+/* SECTION */
+.section{padding:20px 20px 4px}
+.section-label{font-size:10px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:#6B7280;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.section-label::after{content:'';flex:1;height:1px;background:#D0D8E4}
 
-.section-title{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#b8860b;margin-bottom:20px;padding-bottom:8px;border-bottom:1px solid rgba(184,134,11,0.3);}
+/* PROJECT CARDS */
+.project-grid{display:flex;flex-direction:column;gap:10px;padding:0 20px}
+.project-card{background:#fff;border-radius:12px;border:1px solid #E0E8F0;overflow:hidden;text-decoration:none;color:inherit;display:flex;align-items:stretch;transition:box-shadow 0.2s,transform 0.15s}
+.project-card:hover{box-shadow:0 4px 20px rgba(15,42,74,0.12);transform:translateY(-2px)}
+.card-accent{width:5px;flex-shrink:0}
+.card-body{padding:14px 16px;flex:1}
+.card-top{display:flex;align-items:center;gap:10px;margin-bottom:6px}
+.card-icon{font-size:20px;flex-shrink:0}
+.card-type{font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:2px 8px;border-radius:10px}
+.card-title{font-size:14px;font-weight:700;color:#0F2A4A;margin-bottom:4px;line-height:1.3}
+.card-desc{font-size:12px;color:#6B7280;line-height:1.55}
+.card-arrow{padding:14px 16px;display:flex;align-items:center;color:#C0C8D4;font-size:18px;flex-shrink:0}
+.project-card:hover .card-arrow{color:#0F2A4A}
 
-.docs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:40px;}
-.doc-card{background:#0f1f35;border:1px solid rgba(184,134,11,0.2);border-radius:8px;overflow:hidden;transition:transform 0.2s,border-color 0.2s;text-decoration:none;display:block;}
-.doc-card:hover{transform:translateY(-3px);border-color:#b8860b;}
-.doc-card-head{padding:16px 18px 12px;background:linear-gradient(135deg,#0c2340,#152e50);}
-.doc-card-icon{font-size:24px;margin-bottom:8px;display:block;}
-.doc-card-head h3{font-size:14px;font-weight:700;color:#fff;line-height:1.3;margin-bottom:4px;}
-.doc-card-head p{font-size:11px;color:rgba(255,255,255,0.55);line-height:1.4;}
-.doc-card-body{padding:12px 18px 14px;}
-.doc-card-body p{font-size:11.5px;color:rgba(255,255,255,0.65);line-height:1.55;}
-.doc-tag{display:inline-block;font-size:9px;font-weight:700;padding:2px 8px;border-radius:2px;margin-top:10px;letter-spacing:0.5px;text-transform:uppercase;}
-.tag-gold{background:rgba(184,134,11,0.2);color:#b8860b;}
-.tag-green{background:rgba(26,92,42,0.3);color:#4ade80;}
-.tag-blue{background:rgba(26,58,96,0.5);color:#60a5fa;}
+/* CARD COLOUR VARIANTS */
+.card-blue .card-accent{background:#0058A3}
+.card-blue .card-type{background:#E6F0FF;color:#0058A3}
+.card-gold .card-accent{background:#FFB400}
+.card-gold .card-type{background:#FFF3CC;color:#8B6000}
+.card-green .card-accent{background:#059669}
+.card-green .card-type{background:#D1FAE5;color:#065F46}
+.card-red .card-accent{background:#DC2626}
+.card-red .card-type{background:#FEE2E2;color:#991B1B}
+.card-purple .card-accent{background:#7C3AED}
+.card-purple .card-type{background:#EDE9FE;color:#5B21B6}
 
-.cta-banner{background:linear-gradient(135deg,#0c2340,#1a3a60);border:1px solid rgba(184,134,11,0.3);border-radius:8px;padding:24px 28px;display:flex;align-items:center;justify-content:space-between;gap:20px;margin-bottom:40px;}
-.cta-left h3{font-size:16px;font-weight:700;color:#fff;margin-bottom:6px;}
-.cta-left p{font-size:12px;color:rgba(255,255,255,0.6);line-height:1.5;}
-.cta-btn{background:#b8860b;color:#0c2340;font-size:12px;font-weight:700;padding:10px 22px;border-radius:4px;text-decoration:none;white-space:nowrap;letter-spacing:0.5px;}
+/* ACHIEVEMENTS */
+.achieve-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:0 20px}
+.achieve{background:#fff;border-radius:10px;padding:12px 14px;border:1px solid #E0E8F0;border-left:4px solid #FFB400}
+.achieve-val{font-size:20px;font-weight:800;color:#0F2A4A}
+.achieve-lbl{font-size:11px;color:#6B7280;margin-top:2px;line-height:1.4}
 
-.achievements{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:40px;}
-.ach-item{background:#0f1f35;border:1px solid rgba(255,255,255,0.06);border-left:3px solid #b8860b;border-radius:0 6px 6px 0;padding:12px 16px;display:flex;align-items:flex-start;gap:12px;}
-.ach-icon{font-size:20px;flex-shrink:0;margin-top:2px;}
-.ach-text strong{display:block;font-size:12px;color:#fff;margin-bottom:3px;}
-.ach-text span{font-size:11px;color:rgba(255,255,255,0.55);line-height:1.5;}
-
-.footer{background:#050f1e;border-top:2px solid #b8860b;padding:20px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
-.footer p{font-size:11px;color:rgba(255,255,255,0.4);}
-.footer a{color:#b8860b;text-decoration:none;}
-
-@media(max-width:700px){
-  .docs-grid{grid-template-columns:1fr;}
-  .kpi-bar{grid-template-columns:repeat(3,1fr);}
-  .cta-banner{flex-direction:column;text-align:center;}
-  .achievements{grid-template-columns:1fr;}
-  .footer{flex-direction:column;text-align:center;}
-}
+/* FOOTER */
+.footer{background:#0F2A4A;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:gap;margin-top:20px}
+.footer-name{color:#fff;font-size:13px;font-weight:600}
+.footer-sub{color:rgba(255,255,255,0.55);font-size:11px;margin-top:2px}
+.footer-right{color:#FFB400;font-size:11px;text-align:right}
 </style>
 </head>
 <body>
+<div class="wrap">
 
-<!-- HERO -->
-<div class="hero">
-  <div class="hero-tag">🏭 Procurement Intelligence Portfolio</div>
-  <h1>Balamurugan G<br><span>Senior SCM &amp; Procurement Leader</span></h1>
-  <div class="hero-sub">28 Years · ₹50 Crore Spend Managed · ₹1.5 Crore+ Documented Savings · Chennai, India<br>
-  IIMM Full Member F/3737/MD · ISO 9001:2015 · CTPAT · BSCI · AI-Powered Procurement Practitioner</div>
-  <div class="hero-contact">
-    ✉ <a href="mailto:balamurugan_gp@yahoo.com">balamurugan_gp@yahoo.com</a> &nbsp;·&nbsp;
-    🔗 <a href="https://www.linkedin.com/in/bala-murugan-72785b360/" target="_blank">LinkedIn Profile</a> &nbsp;·&nbsp;
-    DGM / Head of Supply Chain &amp; Procurement — Open to Opportunities
-  </div>
-</div>
-
-<!-- KPI BAR -->
-<div class="kpi-bar">
-  <div class="kpi"><span class="kpi-v">₹50 Cr</span><span class="kpi-l">Annual Spend<br>Managed</span></div>
-  <div class="kpi"><span class="kpi-v">₹1.5 Cr+</span><span class="kpi-l">Documented<br>Annual Savings</span></div>
-  <div class="kpi"><span class="kpi-v">425+</span><span class="kpi-l">Vendors<br>Managed</span></div>
-  <div class="kpi"><span class="kpi-v">ZERO</span><span class="kpi-l">Audit<br>Non-Conformances</span></div>
-  <div class="kpi"><span class="kpi-v">28 Yrs</span><span class="kpi-l">SCM<br>Experience</span></div>
-</div>
-
-<!-- MAIN CONTENT -->
-<div class="container">
-
-  <!-- PORTFOLIO DOCUMENTS -->
-  <div class="section-title">📂 Portfolio Documents — Click to Open</div>
-  <div class="docs-grid">
-
-    <a class="doc-card" href="AI_Procurement_Framework_CaseStudy_v2.html" target="_blank">
-      <div class="doc-card-head">
-        <span class="doc-card-icon">🤖</span>
-        <h3>AI Procurement Framework Case Study</h3>
-        <p>Claude AI · 4-Module System · ₹2.8 Cr Model</p>
-      </div>
-      <div class="doc-card-body">
-        <p>How a 7-step Claude AI framework models 75% RFQ cycle reduction, −27% supplier risk incidents, and ₹2.8 Crore total annual benefit. Full case study with 5-phase implementation roadmap.</p>
-        <span class="doc-tag tag-gold">Case Study · Click to View</span>
-      </div>
-    </a>
-
-    <a class="doc-card" href="mastersheet_page1.html" target="_blank">
-      <div class="doc-card-head">
-        <span class="doc-card-icon">📊</span>
-        <h3>Procurement Intelligence Mastersheet — Part 1</h3>
-        <p>Price Anatomy · PRICE Framework · 7-Step AI System</p>
-      </div>
-      <div class="doc-card-body">
-        <p>Universal price anatomy, channel bypass strategies (30–75% savings), 10 global company lessons, and the complete 7-step AI procurement system with Claude integration.</p>
-        <span class="doc-tag tag-blue">Reference Sheet · Click to View</span>
-      </div>
-    </a>
-
-    <a class="doc-card" href="mastersheet_page2.html" target="_blank">
-      <div class="doc-card-head">
-        <span class="doc-card-icon">📋</span>
-        <h3>Procurement Intelligence Mastersheet — Part 2</h3>
-        <p>KPI Dashboard · Risk Matrix · AI Tools · Future Roadmap</p>
-      </div>
-      <div class="doc-card-body">
-        <p>Complete CPO-standard KPI dashboard (6 pillars), supply risk matrix with AI flags, AI tools ecosystem 2025, inventory formulas, 7 procurement frameworks, and 2026–2030 future roadmap.</p>
-        <span class="doc-tag tag-blue">Reference Sheet · Click to View</span>
-      </div>
-    </a>
-
-    <a class="doc-card" href="Bottom_Price_Framework/index.html" target="_blank">
-      <div class="doc-card-head">
-        <span class="doc-card-icon">💰</span>
-        <h3>Bottom Price Framework (PRICE Model)</h3>
-        <p>P · R · I · C · E — Universal Price Intelligence</p>
-      </div>
-      <div class="doc-card-body">
-        <p>A proprietary framework for identifying the true bottom price of any product. Production cost deconstruction, route intelligence, intermediary margin mapping, competitive leverage, and execution.</p>
-        <span class="doc-tag tag-green">Framework · Click to View</span>
-      </div>
-    </a>
-
-    <a class="doc-card" href="skill_gap_project.html" target="_blank">
-      <div class="doc-card-head">
-        <span class="doc-card-icon">🛡️</span>
-        <h3>Strategic Sourcing Skill Gap Project</h3>
-        <p>Supplier Risk Matrix · Negotiation Playbook · TCO</p>
-      </div>
-      <div class="doc-card-body">
-        <p>Simulated procurement transformation for Apex Manufacturing Solutions. Dual-sourcing strategy, 20-supplier risk scoring matrix, AI negotiation playbook with should-cost deconstruction.</p>
-        <span class="doc-tag tag-green">Project · Click to View</span>
-      </div>
-    </a>
-
-    <div class="doc-card" style="border-style:dashed;opacity:0.5;cursor:default;">
-      <div class="doc-card-head">
-        <span class="doc-card-icon">📄</span>
-        <h3>ATS Resume — Download</h3>
-        <p>DGM / Head of SCM · Updated June 2026</p>
-      </div>
-      <div class="doc-card-body">
-        <p>Contact via LinkedIn or email to receive the ATS-optimised Word resume formatted for Naukri, LinkedIn Easy Apply, and direct HR submission.</p>
-        <span class="doc-tag tag-gold">Contact to Request</span>
-      </div>
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-badge">🏭 Procurement Intelligence Portfolio</div>
+    <h1>Balamurugan G</h1>
+    <div class="hero-role">Senior SCM &amp; Procurement Leader · DGM / Head of Supply Chain</div>
+    <div class="hero-sub">
+      28 Years · ₹50 Crore Annual Spend · ₹1.5 Crore+ Documented Savings · Chennai, India<br>
+      IIMM Full Member F/3737/MD · ISO 9001:2015 · CTPAT · BSCI · AI-Powered Procurement Practitioner
     </div>
+    <div class="hero-links">
+      <a href="mailto:balamurugan_gp@yahoo.com" class="hero-link">✉ balamurugan_gp@yahoo.com</a>
+      <a href="https://www.linkedin.com/in/bala-murugan-72785b360/" class="hero-link" target="_blank">🔗 LinkedIn Profile</a>
+      <a href="https://github.com/balamurugangp1971-hue/Balamurugan" class="hero-link" target="_blank">💻 GitHub Repository</a>
+    </div>
+  </div>
+
+  <!-- STATS -->
+  <div class="stats">
+    <div class="stat"><span class="stat-num">₹50 Cr</span><span class="stat-lbl">Annual Spend Managed</span></div>
+    <div class="stat"><span class="stat-num">₹1.5 Cr+</span><span class="stat-lbl">Documented Savings</span></div>
+    <div class="stat"><span class="stat-num">425+</span><span class="stat-lbl">Vendors Managed</span></div>
+    <div class="stat"><span class="stat-num">ZERO</span><span class="stat-lbl">Audit Non-Conformances</span></div>
+    <div class="stat"><span class="stat-num">28 Yrs</span><span class="stat-lbl">SCM Experience</span></div>
+  </div>
+
+  <!-- PROJECTS -->
+  <div class="section">
+    <div class="section-label">📂 Portfolio Projects — Click to Open</div>
+  </div>
+
+  <div class="project-grid">
+
+    <a href="drafts/AI_Procurement_Framework_CaseStudy_v2_1.html" class="project-card card-blue">
+      <div class="card-accent"></div>
+      <div class="card-body">
+        <div class="card-top">
+          <span class="card-icon">🤖</span>
+          <span class="card-type">Case Study</span>
+        </div>
+        <div class="card-title">AI Procurement Framework — Claude Integration</div>
+        <div class="card-desc">4-module system · 7-step framework · 75% RFQ cycle reduction · ₹2.8 Crore modelled annual benefit · 5-phase implementation roadmap</div>
+      </div>
+      <div class="card-arrow">›</div>
+    </a>
+
+    <a href="drafts/Procurement_Mastersheet_Part1.pdf" class="project-card card-gold" target="_blank">
+      <div class="card-accent"></div>
+      <div class="card-body">
+        <div class="card-top">
+          <span class="card-icon">📊</span>
+          <span class="card-type">Reference Sheet</span>
+        </div>
+        <div class="card-title">Procurement Intelligence Mastersheet — Part 1</div>
+        <div class="card-desc">Price anatomy · PRICE Framework · Channel bypass strategies (30–75% savings) · 10 global company lessons · 7-step AI procurement system</div>
+      </div>
+      <div class="card-arrow">›</div>
+    </a>
+
+    <a href="drafts/Procurement_Mastersheet_Part2.pdf" class="project-card card-gold" target="_blank">
+      <div class="card-accent"></div>
+      <div class="card-body">
+        <div class="card-top">
+          <span class="card-icon">📋</span>
+          <span class="card-type">Reference Sheet</span>
+        </div>
+        <div class="card-title">Procurement Intelligence Mastersheet — Part 2</div>
+        <div class="card-desc">CPO-standard KPI dashboard · Supply risk matrix · AI tools ecosystem 2025 · Inventory formulas · 7 procurement frameworks · 2026–2030 roadmap</div>
+      </div>
+      <div class="card-arrow">›</div>
+    </a>
+
+    <a href="Bottom_Price_Framework/index.html" class="project-card card-green">
+      <div class="card-accent"></div>
+      <div class="card-body">
+        <div class="card-top">
+          <span class="card-icon">💰</span>
+          <span class="card-type">Framework</span>
+        </div>
+        <div class="card-title">Bottom Price Framework — PRICE Model</div>
+        <div class="card-desc">Universal price intelligence · Production cost deconstruction · Route intelligence · Intermediary margin mapping · Competitive leverage & execution</div>
+      </div>
+      <div class="card-arrow">›</div>
+    </a>
+
+    <a href="Strategic_Sourcing_Skill_Gap/index.html" class="project-card card-red">
+      <div class="card-accent"></div>
+      <div class="card-body">
+        <div class="card-top">
+          <span class="card-icon">🛡️</span>
+          <span class="card-type">Project</span>
+        </div>
+        <div class="card-title">Strategic Sourcing &amp; Skill Gap Analysis</div>
+        <div class="card-desc">Supplier risk matrix · AI negotiation playbook · Should-cost deconstruction · Dual-sourcing strategy · 20-supplier risk scoring matrix</div>
+      </div>
+      <div class="card-arrow">›</div>
+    </a>
 
   </div>
 
-  <!-- CTA -->
-  <div class="cta-banner">
-    <div class="cta-left">
-      <h3>Open to DGM / Head of Supply Chain &amp; Procurement Roles</h3>
-      <p>Chennai-based · Immediate availability · 28 years experience · ₹50 Crore spend under management · Zero audit non-conformances · AI-powered procurement practitioner</p>
-    </div>
-    <a class="cta-btn" href="mailto:balamurugan_gp@yahoo.com">✉ Contact Balamurugan</a>
+  <!-- ACHIEVEMENTS -->
+  <div class="section" style="margin-top:20px">
+    <div class="section-label">🏆 Key Career Achievements</div>
+  </div>
+  <div class="achieve-grid">
+    <div class="achieve"><div class="achieve-val">₹22L</div><div class="achieve-lbl">LED Factory Conversion — 62% electricity cost reduction · Zero capex · 5-yr maintenance SLA</div></div>
+    <div class="achieve"><div class="achieve-val">₹38L</div><div class="achieve-lbl">Waste-to-Fuel Conversion — 20+ years running · Zero disposal cost + fuel cost simultaneously</div></div>
+    <div class="achieve"><div class="achieve-val">₹32L</div><div class="achieve-lbl">Vendor Consolidation — Strategic rationalization of 425+ vendor base · Reduced spot purchase from 38% to 14%</div></div>
+    <div class="achieve"><div class="achieve-val">ZERO</div><div class="achieve-lbl">Audit Non-Conformances — ISO 9001:2015 · CTPAT · BSCI · Walmart audits — full career tenure</div></div>
+    <div class="achieve"><div class="achieve-val">15–25%</div><div class="achieve-lbl">Direct Manufacturer Sourcing — UAE, Malaysia, Singapore, Vietnam + 6 Indian states</div></div>
+    <div class="achieve"><div class="achieve-val">50 kW</div><div class="achieve-lbl">Solar Plant Commissioning — Procurement-led · Long-term energy cost reduction</div></div>
   </div>
 
-  <!-- KEY ACHIEVEMENTS -->
-  <div class="section-title">🏆 Key Career Achievements</div>
-  <div class="achievements">
-    <div class="ach-item">
-      <div class="ach-icon">💡</div>
-      <div class="ach-text">
-        <strong>LED Factory Conversion — Zero Capital Budget</strong>
-        <span>62% electricity cost reduction across 3 factory floors. Procurement policy innovation: replace at failure only. 5-year maintenance SLA bundled in purchase contract. ₹22 Lakh annual saving.</span>
-      </div>
+  <!-- FOOTER -->
+  <div class="footer">
+    <div>
+      <div class="footer-name">Balamurugan G</div>
+      <div class="footer-sub">Senior SCM &amp; Procurement Leader · IIMM F/3737/MD · Chennai, India</div>
     </div>
-    <div class="ach-item">
-      <div class="ach-icon">♻️</div>
-      <div class="ach-text">
-        <strong>Waste-to-Fuel Conversion — 20+ Years Running</strong>
-        <span>Converted manufacturing waste to boiler fuel. Eliminated both waste disposal cost AND fuel procurement cost simultaneously. Zero capex. ₹38 Lakh annual offset sustained perpetually.</span>
-      </div>
-    </div>
-    <div class="ach-item">
-      <div class="ach-icon">🤖</div>
-      <div class="ach-text">
-        <strong>AI Procurement Framework — Claude Integration</strong>
-        <span>Designed 7-step Claude AI procurement system modelling 75% RFQ cycle reduction (12 days → 3 days), spot purchase share 38% → 14%, and ₹2.8 Crore total annual benefit.</span>
-      </div>
-    </div>
-    <div class="ach-item">
-      <div class="ach-icon">☀️</div>
-      <div class="ach-text">
-        <strong>50 kW Solar Plant Commissioning</strong>
-        <span>Spearheaded rooftop solar installation reducing grid electricity dependency. Long-term energy cost benefit. Procurement-led initiative with full project coordination and vendor management.</span>
-      </div>
-    </div>
-    <div class="ach-item">
-      <div class="ach-icon">🏅</div>
-      <div class="ach-text">
-        <strong>Zero Audit Non-Conformances — Full Tenure</strong>
-        <span>Zero non-conformances across all ISO 9001:2015, CTPAT, BSCI, and Walmart Social/Security/Quality audit cycles throughout entire career tenure. Audit-ready SOPs and vendor frameworks.</span>
-      </div>
-    </div>
-    <div class="ach-item">
-      <div class="ach-icon">🌐</div>
-      <div class="ach-text">
-        <strong>Direct Manufacturer Sourcing — 15–25% Cost Reduction</strong>
-        <span>Eliminated intermediary tiers across 425+ vendor base. Reduced spot-purchase share from 38% to 14%. Built multi-tier supplier network covering 6 Indian states + cross-border: UAE, Malaysia.</span>
-      </div>
+    <div class="footer-right">
+      Open to DGM / Head of<br>Supply Chain &amp; Procurement Roles
     </div>
   </div>
 
 </div>
-
-<!-- FOOTER -->
-<div class="footer">
-  <p>Balamurugan G &nbsp;·&nbsp; Senior Supply Chain &amp; Procurement Leader &nbsp;·&nbsp; Chennai, India &nbsp;·&nbsp; IIMM F/3737/MD &nbsp;·&nbsp; ISO 9001:2015 &nbsp;·&nbsp; 28 Years Experience</p>
-  <p><a href="mailto:balamurugan_gp@yahoo.com">balamurugan_gp@yahoo.com</a> &nbsp;·&nbsp; <a href="https://www.linkedin.com/in/bala-murugan-72785b360/" target="_blank">LinkedIn</a></p>
-</div>
-
 </body>
 </html>
