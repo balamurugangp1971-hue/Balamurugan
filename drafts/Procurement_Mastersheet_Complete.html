@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Procurement Intelligence Mastersheet — Balamurugan G</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:#0D1B2A;color:#E8EDF2;font-size:12px;line-height:1.5}
+.page{max-width:960px;margin:0 auto;padding:16px}
+
+/* HEADER */
+.header{background:linear-gradient(135deg,#0A1628 0%,#1A3A5C 100%);border:1px solid #2A4A6A;border-radius:10px;padding:20px 24px;margin-bottom:12px;position:relative;overflow:hidden}
+.header::before{content:'';position:absolute;top:-40px;right:-40px;width:160px;height:160px;border-radius:50%;background:rgba(255,180,0,0.08)}
+.h-badge{display:inline-block;background:#FFB400;color:#0A1628;font-size:9px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;padding:3px 10px;border-radius:10px;margin-bottom:10px}
+.h-title{font-size:22px;font-weight:800;color:#fff;line-height:1.2;margin-bottom:4px}
+.h-title span{color:#FFB400}
+.h-sub{color:rgba(255,255,255,0.6);font-size:11px;margin-bottom:12px}
+.h-stats{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+.hstat{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:7px;padding:8px 10px;text-align:center}
+.hstat-num{font-size:17px;font-weight:800;color:#FFB400;display:block}
+.hstat-lbl{font-size:9px;color:rgba(255,255,255,0.55);margin-top:2px;display:block;line-height:1.3}
+
+/* NAV TABS */
+.tabs{display:flex;gap:4px;margin-bottom:12px;background:rgba(255,255,255,0.04);border-radius:8px;padding:4px}
+.tab{flex:1;padding:8px 6px;text-align:center;border-radius:6px;cursor:pointer;font-size:11px;font-weight:600;color:rgba(255,255,255,0.5);transition:all 0.2s;border:none;background:transparent}
+.tab.active{background:#FFB400;color:#0A1628}
+.tab:hover:not(.active){background:rgba(255,255,255,0.08);color:#fff}
+
+/* PANELS */
+.panel{display:none}
+.panel.active{display:block}
+
+/* SECTION CARD */
+.sec{background:#0A1628;border:1px solid #1E3A54;border-radius:8px;padding:14px 16px;margin-bottom:10px}
+.sec-head{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.sec-num{background:#FFB400;color:#0A1628;font-size:9px;font-weight:800;width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.sec-title{font-size:11px;font-weight:700;letter-spacing:0.8px;text-transform:uppercase;color:#FFB400}
+
+/* TWO COL */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.three-col{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}
+.four-col{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:8px}
+
+/* MINI CARD */
+.mcard{background:#0F2340;border:1px solid #1E3A54;border-radius:6px;padding:10px 12px}
+.mcard-title{font-size:11px;font-weight:700;color:#FFB400;margin-bottom:5px}
+.mcard-body{font-size:11px;color:#A0B4C8;line-height:1.6}
+.mcard-val{font-size:20px;font-weight:800;color:#FFB400;margin-bottom:2px}
+
+/* TABLE */
+table{width:100%;border-collapse:collapse;font-size:11px}
+th{background:#0F2340;color:#FFB400;padding:6px 10px;text-align:left;font-weight:700;border:1px solid #1E3A54;font-size:10px;letter-spacing:0.5px;text-transform:uppercase}
+td{padding:6px 10px;border:1px solid #1A3050;color:#C0D0E0;vertical-align:top}
+tr:nth-child(even) td{background:rgba(255,255,255,0.02)}
+tr:hover td{background:rgba(255,180,0,0.04)}
+
+/* FORMULA BOX */
+.formula{background:linear-gradient(135deg,#0A1628,#0F2340);border:1px solid #FFB400;border-radius:8px;padding:12px 16px;margin:8px 0;text-align:center}
+.formula-text{font-size:12px;color:#fff;line-height:2}
+.formula-text span{color:#FFB400;font-weight:700}
+.formula-eq{color:rgba(255,255,255,0.4)}
+
+/* PILL */
+.pill{display:inline-block;font-size:10px;padding:2px 8px;border-radius:10px;font-weight:600;margin:2px}
+.pill-gold{background:rgba(255,180,0,0.2);color:#FFB400;border:1px solid rgba(255,180,0,0.3)}
+.pill-blue{background:rgba(0,120,200,0.2);color:#60A5FA;border:1px solid rgba(0,120,200,0.3)}
+.pill-green{background:rgba(16,185,129,0.2);color:#6EE7B7;border:1px solid rgba(16,185,129,0.3)}
+.pill-red{background:rgba(239,68,68,0.2);color:#FCA5A5;border:1px solid rgba(239,68,68,0.3)}
+
+/* KPI ROW */
+.kpi-row{display:flex;align-items:center;gap:8px;padding:6px 0;border-bottom:1px solid #1A3050}
+.kpi-row:last-child{border-bottom:none}
+.kpi-name{font-size:11px;color:#C0D0E0;flex:2}
+.kpi-target{font-size:11px;color:#6EE7B7;font-weight:600;flex:1;text-align:center}
+.kpi-formula{font-size:10px;color:#607080;flex:3}
+
+/* RISK MATRIX */
+.risk-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:3px;margin:8px 0}
+.risk-cell{border-radius:4px;padding:6px 4px;text-align:center;font-size:9px;font-weight:600;line-height:1.3}
+.risk-critical{background:rgba(239,68,68,0.3);color:#FCA5A5;border:1px solid rgba(239,68,68,0.4)}
+.risk-high{background:rgba(251,146,60,0.3);color:#FED7AA;border:1px solid rgba(251,146,60,0.4)}
+.risk-medium{background:rgba(250,204,21,0.3);color:#FDE68A;border:1px solid rgba(250,204,21,0.4)}
+.risk-low{background:rgba(16,185,129,0.2);color:#6EE7B7;border:1px solid rgba(16,185,129,0.3)}
+.risk-header{background:transparent;color:#607080;font-size:9px}
+
+/* STEP LIST */
+.step-list{list-style:none;padding:0}
+.step-list li{display:flex;gap:10px;padding:6px 0;border-bottom:1px solid #1A3050;align-items:flex-start}
+.step-list li:last-child{border-bottom:none}
+.step-num{width:20px;height:20px;border-radius:50%;background:#FFB400;color:#0A1628;font-size:10px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.step-text{font-size:11px;color:#C0D0E0;line-height:1.5}
+.step-text strong{color:#FFB400}
+
+/* SAVINGS BAR */
+.sbar-row{display:flex;align-items:center;gap:8px;margin-bottom:6px}
+.sbar-lbl{font-size:11px;color:#A0B4C8;width:160px;flex-shrink:0}
+.sbar-track{flex:1;height:8px;background:#1A3050;border-radius:4px;overflow:hidden}
+.sbar-fill{height:100%;border-radius:4px;background:linear-gradient(90deg,#FFB400,#FF8C00)}
+.sbar-val{font-size:11px;font-weight:700;color:#FFB400;width:80px;text-align:right;flex-shrink:0}
+
+/* FOOTER */
+.footer{background:#0A1628;border:1px solid #1E3A54;border-radius:8px;padding:12px 16px;margin-top:12px;display:flex;align-items:center;justify-content:space-between}
+.footer-name{font-size:13px;font-weight:700;color:#FFB400}
+.footer-sub{font-size:10px;color:rgba(255,255,255,0.45);margin-top:2px}
+.footer-right{text-align:right;font-size:10px;color:rgba(255,255,255,0.45)}
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- HEADER -->
+<div class="header">
+  <div class="h-badge">📊 Procurement Intelligence Mastersheet — Complete Edition</div>
+  <div class="h-title">The <span>Ultimate Procurement</span> Reference — Parts 1 &amp; 2 Merged</div>
+  <div class="h-sub">Balamurugan G · Senior SCM &amp; Procurement Leader · 28 Years · IIMM F/3737/MD · Chennai, India</div>
+  <div class="h-stats">
+    <div class="hstat"><span class="hstat-num">₹50 Cr</span><span class="hstat-lbl">Annual Spend Managed</span></div>
+    <div class="hstat"><span class="hstat-num">₹1.5 Cr+</span><span class="hstat-lbl">Documented Savings</span></div>
+    <div class="hstat"><span class="hstat-num">425+</span><span class="hstat-lbl">Vendors Managed</span></div>
+    <div class="hstat"><span class="hstat-num">ZERO</span><span class="hstat-lbl">Audit Non-Conformances</span></div>
+    <div class="hstat"><span class="hstat-num">12+</span><span class="hstat-lbl">Sections · Reference</span></div>
+  </div>
+</div>
+
+<!-- TABS -->
+<div class="tabs">
+  <button class="tab active" onclick="showPanel('p1')">PART 1 · Price &amp; AI System</button>
+  <button class="tab" onclick="showPanel('p2')">PART 2 · KPI &amp; Risk</button>
+  <button class="tab" onclick="showPanel('p3')">PART 2 · Frameworks</button>
+  <button class="tab" onclick="showPanel('p4')">PART 2 · Roadmap</button>
+</div>
+
+<!-- ═══════════════ PANEL 1: PART 1 CONTENT ═══════════════ -->
+<div class="panel active" id="p1">
+
+  <!-- SECTION 1: PRICE ANATOMY -->
+  <div class="sec">
+    <div class="sec-head"><div class="sec-num">1</div><div class="sec-title">Universal Price Anatomy — What Every Quote Contains</div></div>
+    <div class="formula">
+      <div class="formula-text">
+        Supplier Price <span class="formula-eq">=</span> <span>Raw Materials</span> <span class="formula-eq">+</span> <span>Direct Labour</span> <span class="formula-eq">+</span> <span>Manufacturing Overhead</span> <span class="formula-eq">+</span> <span>Logistics & Packaging</span> <span class="formula-eq">+</span> <span>SG&amp;A</span> <span class="formula-eq">+</span> <span>Profit Margin</span> <span class="formula-eq">+</span> <span>Risk Premium</span>
+      </div>
+    </div>
+    <div class="four-col" style="margin-top:8px">
+      <div class="mcard"><div class="mcard-title">Raw Materials</div><div class="mcard-body">40–60% of total cost. Link to LME / commodity indices. Most negotiable element.</div></div>
+      <div class="mcard"><div class="mcard-title">Direct Labour</div><div class="mcard-body">20–35% in labour-intensive industries. Varies by country, skill, and automation level.</div></div>
+      <div class="mcard"><div class="mcard-title">Overhead + SG&amp;A</div><div class="mcard-body">15–25% typical. Factory overhead + admin + sales. Often padded. Benchmark against industry.</div></div>
+      <div class="mcard"><div class="mcard-title">Profit Margin</div><div class="mcard-body">5–20% fair range. Below 5% = supplier cuts quality. Above 20% = negotiation opportunity.</div></div>
+    </div>
+  </div>
+
+  <!-- SECTION 2: PRICE FRAMEWORK -->
+  <div class="sec">
+    <div class="sec-head"><div class="sec-num">2</div><div class="sec-title">The PRICE Framework — 5-Step Bottom Price Discovery</div></div>
+    <div class="two-col">
+      <div>
+        <ul class="step-list">
+          <li><div class="step-num">P</div><div class="step-text"><strong>Production Cost Deconstruction</strong> — Break every quote into raw material, labour, overhead, logistics, and margin. Use Should-Cost Analysis. Never negotiate a black-box price.</div></li>
+          <li><div class="step-num">R</div><div class="step-text"><strong>Route Intelligence</strong> — Map every intermediary between factory and your dock. Each layer adds 10–25%. Direct manufacturer sourcing saves 15–25% immediately.</div></li>
+          <li><div class="step-num">I</div><div class="step-text"><strong>Index-Based Benchmarking</strong> — Link raw material cost to live indices: LME (metals), Platts (energy), CRISIL (domestic). If copper is down 12%, your cable quote should reflect it.</div></li>
+          <li><div class="step-num">C</div><div class="step-text"><strong>Competitive Leverage</strong> — Minimum 3 quotes every RFQ. Multi-round negotiation. Volume consolidation. Long-term commitment in exchange for below-market pricing.</div></li>
+          <li><div class="step-num">E</div><div class="step-text"><strong>Execution &amp; Lock-in</strong> — Formalise with price escalation/de-escalation clauses indexed to commodities. Annual should-cost review built into contract. Prevents silent inflation.</div></li>
+        </ul>
+      </div>
+      <div>
+        <div class="mcard" style="margin-bottom:8px">
+          <div class="mcard-title">Channel Bypass Savings Potential</div>
+          <div style="margin-top:8px">
+            <div class="sbar-row"><div class="sbar-lbl">Direct Manufacturer</div><div class="sbar-track"><div class="sbar-fill" style="width:75%"></div></div><div class="sbar-val">15–25% save</div></div>
+            <div class="sbar-row"><div class="sbar-lbl">Eliminate Agents</div><div class="sbar-track"><div class="sbar-fill" style="width:60%"></div></div><div class="sbar-val">10–20% save</div></div>
+            <div class="sbar-row"><div class="sbar-lbl">Volume Consolidation</div><div class="sbar-track"><div class="sbar-fill" style="width:50%"></div></div><div class="sbar-val">8–15% save</div></div>
+            <div class="sbar-row"><div class="sbar-lbl">Long-Term Contracts</div><div class="sbar-track"><div class="sbar-fill" style="width:45%"></div></div><div class="sbar-val">5–12% save</div></div>
+            <div class="sbar-row"><div class="sbar-lbl">Index-Linked Pricing</div><div class="sbar-track"><div class="sbar-fill" style="width:35%"></div></div><div class="sbar-val">3–8% save</div></div>
+          </div>
+        </div>
+        <div class="mcard">
+          <div class="mcard-title">Negotiation Power Formula</div>
+          <div class="mcard-body" style="margin-top:6px;font-size:11px;line-height:1.8;color:#FFB400">
+            Should-Cost Data<br>
+            + Minimum 3 Competitor Quotes<br>
+            + Committed Annual Volume<br>
+            + Multi-Round Structure<br>
+            ─────────────────<br>
+            <span style="color:#6EE7B7">= 15–30% Better Outcome</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 3: GLOBAL COMPANY LESSONS -->
+  <div class="sec">
+    <div class="sec-head"><div class="sec-num">3</div><div class="sec-title">10 Global Companies — Procurement Strategy Lessons</div></div>
+    <table>
+      <tr><th>Company</th><th>Core Strategy</th><th>Key Metric</th><th>Procurement Lesson</th></tr>
+      <tr><td><span class="pill pill-blue">Costco</span></td><td>Membership-funded low prices</td><td>15% max markup cap</td><td>Committed volume unlocks pricing no spot buyer sees</td></tr>
+      <tr><td><span class="pill pill-gold">Amazon</span></td><td>AI dynamic pricing engine</td><td>2.5M price changes/day</td><td>Real-time data eliminates human pricing error</td></tr>
+      <tr><td><span class="pill pill-blue">Apple</span></td><td>Value-based premium pricing</td><td>65–75% profit on 15% volume</td><td>Perceived value &gt; actual cost — brand = pricing power</td></tr>
+      <tr><td><span class="pill pill-gold">IKEA</span></td><td>Design-to-cost engineering</td><td>30–50% cost vs assembled</td><td>Price determines design — build cost backward from target</td></tr>
+      <tr><td><span class="pill pill-red">Zara</span></td><td>Speed + scarcity model</td><td>&lt;10% unsold vs 35% industry</td><td>Agile sourcing beats cheap far-shore every time</td></tr>
+      <tr><td><span class="pill pill-red">Toyota</span></td><td>JIT + Kaizen lean system</td><td>~30% cost vs traditional mfg</td><td>Eliminate waste before adding capacity — JIT is procurement gold</td></tr>
+      <tr><td><span class="pill pill-blue">Walmart</span></td><td>EDLC + technology</td><td>$1.4B annual tech investment</td><td>Share data with suppliers — both sides win on cost</td></tr>
+      <tr><td><span class="pill pill-green">Starbucks</span></td><td>Loyalty + experience pricing</td><td>65–70% beverage margin</td><td>Experience = price inelasticity — apply to supplier relations</td></tr>
+      <tr><td><span class="pill pill-gold">Reliance/Jio</span></td><td>Penetration pricing disruption</td><td>97% data cost collapse</td><td>Vertical integration kills margin leakage at every layer</td></tr>
+      <tr><td><span class="pill pill-blue">Adobe</span></td><td>Subscription + lock-in</td><td>88%+ gross margins</td><td>Recurring contracts = predictable cost + relationship leverage</td></tr>
+    </table>
+  </div>
+
+  <!-- SECTION 4: 7-STEP AI SYSTEM -->
+  <div class="sec">
+    <div class="sec-head"><div class="sec-num">4</div><div class="sec-title">7-Step AI Procurement System — Claude Integration</div></div>
+    <div class="two-col">
+      <ul class="step-list">
+        <li><div class="step-num">1</div><div class="step-text"><strong>Spend Analysis Upload</strong> — Feed 12-month PO data to Claude. Get ABC/XYZ classification, spend concentration, and anomaly flags in minutes vs days.</div></li>
+        <li><div class="step-num">2</div><div class="step-text"><strong>Should-Cost Model Build</strong> — Prompt Claude with product specs + commodity indices. Generate clean-sheet cost breakdown in 3 minutes. Input: specs. Output: negotiation floor.</div></li>
+        <li><div class="step-num">3</div><div class="step-text"><strong>RFQ Document Generation</strong> — Claude drafts complete RFQ with technical specs, commercial terms, evaluation criteria, and SLA clauses. 12-day process → 3 days.</div></li>
+        <li><div class="step-num">4</div><div class="step-text"><strong>Vendor Risk Scoring</strong> — Feed supplier financials, delivery history, and audit data. Claude outputs ranked risk score per vendor with red-flag alerts.</div></li>
+      </ul>
+      <ul class="step-list">
+        <li><div class="step-num">5</div><div class="step-text"><strong>Quote Comparative Analysis</strong> — Paste 3–5 supplier quotes. Claude deconstructs each, identifies cost outliers, flags missing items, and recommends negotiation sequence.</div></li>
+        <li><div class="step-num">6</div><div class="step-text"><strong>Contract Clause Drafting</strong> — Claude drafts price escalation clauses, penalty structures, force majeure carve-outs, and index linkage language for review by legal.</div></li>
+        <li><div class="step-num">7</div><div class="step-text"><strong>KPI Reporting &amp; Savings Documentation</strong> — Claude formats savings data per CFO standards: baseline vs actual, methodology, verification trail. Board-ready in 15 minutes.</div></li>
+      </ul>
+    </div>
+    <div class="formula" style="margin-top:8px">
+      <div class="formula-text">AI Impact: RFQ Cycle <span>12 days → 3 days</span> · Spot Purchase Share <span>38% → 14%</span> · Modelled Annual Benefit <span>₹2.8 Crore</span></div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ═══════════════ PANEL 2: KPI DASHBOARD ═══════════════ -->
+<div class="panel" id="p2">
+
+  <!-- SECTION 5: KPI DASHBOARD -->
+  <div class="sec">
+    <div class="sec-head"><div class="sec-num">5</div><div class="sec-title">CPO-Standard KPI Dashboard — 6 Pillars</div></div>
+    <table>
+      <tr><th>KPI</th><th>Formula</th><th>Target</th><th>Frequency</th><th>Pillar</th></tr>
+      <tr><td>Cost Savings %</td><td>(Baseline − Actual) / Baseline × 100</td><td>&gt;5% annually</td><td>Monthly</td><td><span class="pill pill-gold">Cost</span></td></tr>
+      <tr><td>Cost Avoidance</td><td>Market Price − Negotiated Price × Volume</td><td>Document all</td><td>Per PO</td><td><span class="pill pill-gold">Cost</span></td></tr>
+      <tr><td>Spend Under Management</td><td>Managed Spend / Total Spend × 100</td><td>&gt;80%</td><td>Quarterly</td><td><span class="pill pill-gold">Cost</span></td></tr>
+      <tr><td>Supplier On-Time Delivery</td><td>On-Time Deliveries / Total Deliveries × 100</td><td>&gt;95%</td><td>Monthly</td><td><span class="pill pill-blue">Quality</span></td></tr>
+      <tr><td>Purchase Order Accuracy</td><td>Error-Free POs / Total POs × 100</td><td>&gt;98%</td><td>Monthly</td><td><span class="pill pill-blue">Quality</span></td></tr>
+      <tr><td>Defect / Rejection Rate</td><td>Rejected Qty / Total Received × 100</td><td>&lt;2%</td><td>Monthly</td><td><span class="pill pill-blue">Quality</span></td></tr>
+      <tr><td>RFQ Cycle Time</td><td>Days: Requisition to PO Award</td><td>&lt;7 days</td><td>Per event</td><td><span class="pill pill-green">Speed</span></td></tr>
+      <tr><td>PO Processing Time</td><td>Days: PO raised to supplier acknowledged</td><td>&lt;24 hrs</td><td>Per PO</td><td><span class="pill pill-green">Speed</span></td></tr>
+      <tr><td>Supplier Lead Time Compliance</td><td>Actual LT / Agreed LT × 100</td><td>&gt;90%</td><td>Monthly</td><td><span class="pill pill-green">Speed</span></td></tr>
+      <tr><td>Active Vendor Count</td><td>Vendors with PO in last 12 months</td><td>Optimised base</td><td>Quarterly</td><td><span class="pill pill-red">Suppliers</span></td></tr>
+      <tr><td>Single-Source Dependency</td><td>Single-source categories / Total categories</td><td>&lt;20%</td><td>Quarterly</td><td><span class="pill pill-red">Risk</span></td></tr>
+      <tr><td>Spot Purchase Ratio</td><td>Spot POs / Total POs × 100</td><td>&lt;15%</td><td>Monthly</td><td><span class="pill pill-red">Risk</span></td></tr>
+      <tr><td>Inventory Turnover</td><td>COGS / Average Inventory</td><td>&gt;8× annually</td><td>Monthly</td><td><span class="pill pill-blue">Inventory</span></td></tr>
+      <tr><td>Days Inventory Outstanding</td><td>365 / Inventory Turnover</td><td>&lt;45 days</td><td>Monthly</td><td><span class="pill pill-blue">Inventory</span></td></tr>
+      <tr><td>Procurement ROI</td><td>(Savings − Dept Cost) / Dept Cost × 100</td><td>&gt;4:1 ratio</td><td>Annual</td><td><span class="pill pill-gold">Value</span></td></tr>
+    </table>
+  </div>
+
+  <!-- SECTION 6: INVENTORY FORMULAS -->
+  <div class="sec">
+    <div class="sec-head"><div class="sec-num">6</div><div class="sec-title">Inventory Management Formulas — Field-Verified</div></div>
+    <div class="two-col">
+      <div>
+        <div class="mcard" style="margin-bottom:8px">
+          <div class="mcard-title">EOQ — Economic Order Quantity</div>
+          <div class="mcard-body" style="margin-top:6px">
+            <span style="color:#FFB400;font-family:monospace">EOQ = √(2 × D × S / H)</span><br><br>
+            D = Annual Demand (units)<br>
+            S = Ordering Cost per order (₹)<br>
+            H = Holding Cost per unit per year (₹)<br><br>
+            <span style="color:#6EE7B7">Use: Minimise total inventory cost</span>
+          </div>
+        </div>
+        <div class="mcard">
+          <div class="mcard-title">Safety Stock</div>
+          <div class="mcard-body" style="margin-top:6px">
+            <span style="color:#FFB400;font-family:monospace">SS = Z × σ(lead time demand)</span><br><br>
+            Z = 1.65 for 95% service level<br>
+            Z = 1.96 for 97.5% service level<br>
+            Z = 2.33 for 99% service level<br><br>
+            <span style="color:#6EE7B7">Use: Buffer against demand variability</span>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="mcard" style="margin-bottom:8px">
+          <div class="mcard-title">Reorder Point (ROP)</div>
+          <div class="mcard-body" style="margin-top:6px">
+            <span style="color:#FFB400;font-family:monospace">ROP = (Avg Daily Demand × Lead Time) + Safety Stock</span><br><br>
+            <span style="color:#6EE7B7">Use: Trigger purchase order automatically</span>
+          </div>
+        </div>
+        <div class="mcard">
+          <div class="mcard-title">ABC–XYZ Classification Matrix</div>
+          <div class="mcard-body" style="margin-top:6px">
+            <strong style="color:#FFB400">ABC (Value):</strong><br>
+            A = 80% value, 20% SKUs → daily review<br>
+            B = 15% value → weekly review<br>
+            C = 5% value → monthly/min-max auto<br><br>
+            <strong style="color:#FFB400">XYZ (Demand Pattern):</strong><br>
+            X = Predictable · Y = Variable · Z = Erratic<br>
+            AX = Most critical · CZ = Consider elimination
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 7: SUPPLY RISK MATRIX -->
+  <div class="sec">
+    <div class="sec-head"><div class="sec-num">7</div><div class="sec-title">Supply Risk Matrix — AI-Enhanced Scoring</div></div>
+    <table>
+      <tr><th>Risk Factor</th><th>Weight</th><th>Score 1–5</th><th>AI Flag Trigger</th><th>Mitigation Action</th></tr>
+      <tr><td>Single-source dependency</td><td>25%</td><td>5 = sole source</td><td>Score &gt; 3</td><td>Qualify alternate within 90 days</td></tr>
+      <tr><td>Supplier financial health</td><td>20%</td><td>5 = distress signals</td><td>Score &gt; 3</td><td>Request audited financials annually</td></tr>
+      <tr><td>Geopolitical / country risk</td><td>15%</td><td>5 = high instability</td><td>Score &gt; 3</td><td>Dual-country sourcing strategy</td></tr>
+      <tr><td>Lead time reliability</td><td>15%</td><td>5 = &gt;30% variance</td><td>Score &gt; 3</td><td>Increase safety stock, penalise clause</td></tr>
+      <tr><td>Quality / rejection rate</td><td>15%</td><td>5 = &gt;5% rejection</td><td>Score &gt; 3</td><td>Incoming QC protocol, SLA penalty</td></tr>
+      <tr><td>Regulatory / compliance</td><td>10%</td><td>5 = non-compliant</td><td>Score &gt; 2</td><td>Immediate hold, audit trigger</td></tr>
+    </table>
+    <div style="margin-top:10px;font-size:11px;color:#A0B4C8">
+      <strong style="color:#FFB400">Total Risk Score:</strong> Sum of (Factor Weight × Score). 
+      <span class="pill pill-green">0–1.5 = Low</span>
+      <span class="pill pill-gold">1.6–2.5 = Medium</span>
+      <span class="pill pill-red">2.6–3.5 = High</span>
+      <span style="background:rgba(239,68,68,0.4);color:#FCA5A5;padding:2px 8px;border-radius:10px;font-size:10px;font-weight:600">3.6–5.0 = Critical — escalate immediately</span>
+    </div>
+  </div>
+
+</div>
+
+<!-- ═══════════════ PANEL 3: FRAMEWORKS ═══════════════ -->
+<div class="panel" id="p3">
+
+  <!-- SECTION 8: 7 PROCUREMENT FRAMEWORKS -->
+  <div class="sec">
+    <div class="sec-head"><div class="sec-num">8</div><div class="sec-title">7 Essential Procurement Frameworks — Field-Verified</div></div>
+    <table>
+      <tr><th>Framework</th><th>Description</th><th>When to Use</th><th>Key Output</th></tr>
+      <tr><td><strong style="color:#FFB400">1. Kraljic Matrix</strong></td><td>4 quadrants: Routine (automate), Leverage (competitive bid), Bottleneck (secure supply), Strategic (partner)</td><td>Portfolio strategy setting</td><td>Maps spend to correct procurement approach</td></tr>
+      <tr><td><strong style="color:#FFB400">2. TCO Model</strong></td><td>Purchase price = 30–60% of true cost. Add: quality, logistics, inventory carrying, invoice errors, disposal</td><td>Supplier selection, total cost</td><td>Entry cost vs ongoing cost comparison. Toyota example: 25–80% hidden</td></tr>
+      <tr><td><strong style="color:#FFB400">3. Make vs Buy</strong></td><td>Make if: core competency, IP sensitive, volume justifies fixed cost. Buy if: commodity, supplier has scale advantage</td><td>Capex decisions, outsourcing</td><td>BEP evaluation, supplier capability vs internal</td></tr>
+      <tr><td><strong style="color:#FFB400">4. Porter's 5 Forces</strong></td><td>Map buyer power vs supplier power, threat of substitutes, new entrants, competitive rivalry</td><td>New supply market entry</td><td>High supplier concentration = low buyer power = pay premium</td></tr>
+      <tr><td><strong style="color:#FFB400">5. Carter's 10 Cs</strong></td><td>Competency · Capacity · Commitment · Control · Cash · Cost · Consistency · Culture · Clean · Communication</td><td>New supplier evaluation</td><td>Supplier scorecard — board-ready assessment</td></tr>
+      <tr><td><strong style="color:#FFB400">6. SWOT + PESTEL</strong></td><td>SWOT for supplier health assessment. PESTEL for supply market: Political, Economic, Social, Technology, Environment, Legal</td><td>Annual supplier review</td><td>Risk-adjusted supplier health index</td></tr>
+      <tr><td><strong style="color:#FFB400">7. BATNA Negotiation</strong></td><td>Best Alternative to Negotiated Agreement. Always define your BATNA before entering negotiation room. The party with the stronger BATNA wins.</td><td>Every negotiation</td><td>Walk-away point clarity · No-deal is sometimes the best deal</td></tr>
+    </table>
+  </div>
+
+  <!-- SECTION 9: AI TOOLS ECOSYSTEM -->
+  <div class="sec">
+    <div class="sec-head"><div class="sec-num">9</div><div class="sec-title">AI Tools Ecosystem for Procurement — 2025–26</div></div>
+    <div class="three-col">
+      <div class="mcard">
+        <div class="mcard-title">🤖 Generative AI (Claude / GPT)</div>
+        <div class="mcard-body">
+          RFQ drafting · Should-cost modelling · Contract clause generation · Supplier risk narrative · Savings documentation · KPI report formatting<br><br>
+          <span class="pill pill-gold">Best for: High-complexity text tasks</span>
+        </div>
+      </div>
+      <div class="mcard">
+        <div class="mcard-title">📊 Spend Analytics AI</div>
+        <div class="mcard-body">
+          Spend cube classification · Duplicate payment detection · Maverick spend identification · Vendor consolidation opportunity mapping<br><br>
+          <span class="pill pill-blue">Tools: Coupa, Jaggaer, SAP Ariba</span>
+        </div>
+      </div>
+      <div class="mcard">
+        <div class="mcard-title">📦 Demand Forecasting AI</div>
+        <div class="mcard-body">
+          ML-based demand sensing · Safety stock optimisation · Replenishment automation · Seasonal demand modelling<br><br>
+          <span class="pill pill-green">Tools: Oracle SCM, Blue Yonder</span>
+        </div>
+      </div>
+      <div class="mcard">
+        <div class="mcard-title">🛡️ Supplier Risk AI</div>
+        <div class="mcard-body">
+          Financial distress signals · ESG compliance scoring · Geopolitical risk feeds · News-based early warning<br><br>
+          <span class="pill pill-red">Tools: Resilinc, Riskmethods, D&amp;B</span>
+        </div>
+      </div>
+      <div class="mcard">
+        <div class="mcard-title">💰 Dynamic Pricing AI</div>
+        <div class="mcard-body">
+          Commodity index integration · Automatic price adjustment · Spot market comparison · Contract re-opener triggers<br><br>
+          <span class="pill pill-gold">Apply: Index-link key contracts</span>
+        </div>
+      </div>
+      <div class="mcard">
+        <div class="mcard-title">📋 Contract AI</div>
+        <div class="mcard-body">
+          Obligation extraction · Renewal alert · SLA compliance monitoring · Deviation flagging vs standard template<br><br>
+          <span class="pill pill-blue">Tools: Ironclad, Icertis, LinkSquares</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ═══════════════ PANEL 4: ROADMAP ═══════════════ -->
+<div class="panel" id="p4">
+
+  <!-- SECTION 10: PROCUREMENT EVOLUTION ROADMAP -->
+  <div class="sec">
+    <div class="sec-head"><div class="sec-num">10</div><div class="sec-title">Procurement Evolution Roadmap — Past to Future</div></div>
+    <table>
+      <tr><th>Era</th><th>Period</th><th>Key Characteristics</th><th>Technology</th><th>Procurement Role</th></tr>
+      <tr><td><strong style="color:#FCA5A5">Manual / Relational</strong></td><td>Pre-2000</td><td>Paper POs, telephone RFQs, information asymmetry maximum. Price governed by relationship and negotiating personality.</td><td>Fax, phone, Excel</td><td>Order placer, cost centre</td></tr>
+      <tr><td><strong style="color:#FCD34D">e-Procurement</strong></td><td>2000–2010</td><td>ERP systems, online RFQs, reverse auctions. Transparency improved. Price discovery became systematic.</td><td>SAP, Oracle, Ariba</td><td>Process manager</td></tr>
+      <tr><td><strong style="color:#6EE7B7">Strategic Sourcing</strong></td><td>2010–2020</td><td>Spend analytics, supplier segmentation, TCO focus, global sourcing. Procurement elevated to boardroom.</td><td>Cloud ERP, analytics</td><td>Strategic partner</td></tr>
+      <tr><td><strong style="color:#60A5FA">AI-Augmented</strong></td><td>2020–2025</td><td>Predictive analytics, AI negotiation support, real-time risk monitoring, autonomous replenishment.</td><td>Claude, Coupa AI, ML</td><td>Intelligence orchestrator</td></tr>
+      <tr><td><strong style="color:#FFB400">Autonomous Procurement</strong></td><td>2025–2030</td><td>Self-optimising contracts, AI supplier selection, continuous pricing using live market data, ESG integrated scoring.</td><td>Agentic AI, blockchain</td><td>Value architect, board advisor</td></tr>
+    </table>
+  </div>
+
+  <!-- SECTION 11: DOCUMENTED SAVINGS -->
+  <div class="sec">
+    <div class="sec-head"><div class="sec-num">11</div><div class="sec-title">Balamurugan G — Verified Savings Register</div></div>
+    <div class="two-col">
+      <div>
+        <div style="margin-bottom:8px">
+          <div class="sbar-row"><div class="sbar-lbl">Waste-to-Fuel Conversion</div><div class="sbar-track"><div class="sbar-fill" style="width:100%"></div></div><div class="sbar-val">₹38.0 L/yr</div></div>
+          <div class="sbar-row"><div class="sbar-lbl">Spot Purchase Elimination</div><div class="sbar-track"><div class="sbar-fill" style="width:83%"></div></div><div class="sbar-val">₹50.4 L/yr</div></div>
+          <div class="sbar-row"><div class="sbar-lbl">Vendor Consolidation</div><div class="sbar-track"><div class="sbar-fill" style="width:63%"></div></div><div class="sbar-val">₹32.0 L/yr</div></div>
+          <div class="sbar-row"><div class="sbar-lbl">LED Retrofit</div><div class="sbar-track"><div class="sbar-fill" style="width:43%"></div></div><div class="sbar-val">₹22.0 L/yr</div></div>
+          <div class="sbar-row"><div class="sbar-lbl">RFQ Efficiency Gain</div><div class="sbar-track"><div class="sbar-fill" style="width:17%"></div></div><div class="sbar-val">₹8.5 L eq.</div></div>
+        </div>
+        <div class="formula">
+          <div class="formula-text">Total Documented Savings: <span>₹1.5 Crore+ annually</span></div>
+        </div>
+      </div>
+      <div>
+        <div class="mcard" style="margin-bottom:8px">
+          <div class="mcard-title">Savings Documentation Standard (CFO-Ready)</div>
+          <div class="mcard-body" style="margin-top:6px;line-height:1.8">
+            1. Establish baseline (previous year actual)<br>
+            2. Document negotiated / achieved price<br>
+            3. Apply to annualised volume<br>
+            4. Net of implementation cost<br>
+            5. Verified by Finance / auditable trail<br>
+            6. Separate: Hard savings vs Cost avoidance
+          </div>
+        </div>
+        <div class="mcard">
+          <div class="mcard-title">Key Career Differentiators</div>
+          <div class="mcard-body" style="margin-top:6px;line-height:1.8">
+            ✅ ZERO audit non-conformances — full career<br>
+            ✅ Cross-border sourcing: UAE, Malaysia, Singapore, Vietnam<br>
+            ✅ Direct manufacturer sourcing: 15–25% savings<br>
+            ✅ AI procurement framework: Claude-powered<br>
+            ✅ 50 kW solar commissioning — procurement-led<br>
+            ✅ IIMM Full Member F/3737/MD since 2007
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <div>
+    <div class="footer-name">Balamurugan G — Procurement Intelligence Mastersheet</div>
+    <div class="footer-sub">28 Years · ₹50 Crore Spend · IIMM F/3737/MD · ISO 9001:2015 · CTPAT · BSCI · Chennai, India</div>
+  </div>
+  <div class="footer-right">
+    balamurugan_gp@yahoo.com<br>
+    linkedin.com/in/bala-murugan-72785b360/<br>
+    Open to DGM / Head SCM Roles
+  </div>
+</div>
+
+</div>
+
+<script>
+function showPanel(id){
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  event.target.classList.add('active');
+}
+</script>
+</body>
+</html>
